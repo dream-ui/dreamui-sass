@@ -1,0 +1,111 @@
+/**
+ *
+ * public style class
+ *  
+ */
+.uppercase{
+  text-transform:uppercase;
+  input{
+    text-transform:uppercase;
+  }
+}
+.fill-parent {
+  width: 100%;
+  height: 100%;
+}
+.fill-width {
+  width: 100%; 
+}
+.fill-height {
+  height: 100%;
+}
+.max-fill-parent {  
+  max-height: 100%;
+  max-width: 100%; 
+}
+.single-line-ellipsis {
+  @include single-line-ellipsis;
+}
+.flex-center{
+  @include display-flex;
+  @include align-items(center);
+  @include justify-content(center);
+}
+.flex-center-inline{
+  @include display-inline-flex;
+  @include align-items(center);
+  @include justify-content(center);
+}
+.flex-left{
+  @include display-flex;
+  @include align-items(center);
+  @include justify-content(flex-start);
+}
+.flex-space-between{
+  @include display-flex;
+  @include align-items(center);
+  @include justify-content(space-between);
+}
+.flex-h{
+  @include flex-direction(row);
+}
+.flex-v{
+  @include flex-direction(column);
+}
+.input-plain{
+  width: 100%;
+  border: 0px;
+  &:focus{
+    outline: none;
+  }
+}
+
+.model-fixed-full{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.model-absolute-full{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/**
+ *
+ * public style class for components
+ *  
+ */
+
+/**
+ * grid class: use flex.
+ *    .xui-row
+ *      .xui-col-0 ~ .xui-col-100
+ */
+.xui-row{
+  @include display-flex;
+  @include align-items(center);
+}
+$xui_col_per: 0;
+@while $xui_col_per <= 100 {
+  .xui-col-#{$xui_col_per} {
+    @include flex(#{$xui_col_per});
+  }
+  $xui_col_per: $xui_col_per+1;
+}
+/**
+ * pregress class: use `right` protopety.
+ *    .xui-row
+ *      .xui-col-0 ~ .xui-col-100
+ */
+$xui_progressing_i: 0;
+@while $xui_progressing_i <= 100 {
+  .xui-progressing-#{$xui_progressing_i} {
+    right: #{100-$xui_progressing_i};
+  }
+  $xui_progressing_i: $xui_progressing_i+1;
+}

@@ -1,0 +1,65 @@
+/**
+ *  border and box Mixins 
+ */
+@mixin box-shadow($shadow...) {
+  -webkit-box-shadow: $shadow;
+          box-shadow: $shadow;
+} 
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius; 
+          border-radius: $radius;
+}
+@mixin border-top-right-radius($radius){
+  -webkit-border-top-right-radius:  $radius;
+  border-top-right-radius:  $radius;
+}
+@mixin border-top-radius($radius){
+  -webkit-border-top-left-radius:   $radius;
+          border-top-left-radius:   $radius;
+  -webkit-border-top-right-radius:  $radius;
+          border-top-right-radius:  $radius;
+}
+
+@mixin thin-border-bottom($color){
+  @include thin-border($color, 'bottom');
+}
+@mixin thin-border-top($color){
+  @include thin-border($color, 'top');
+}
+@mixin thin-border-left($color){
+  @include thin-border($color, 'left');
+}
+@mixin thin-border-right($color){
+  @include thin-border($color, 'right');
+}
+@mixin thin-border-all($color, $borderRadius: 'initial'){
+  @include thin-border($color, 'all', $borderRadius);
+}
+@mixin thin-border($color, $position: 'all', $borderRadius: 'initial'){
+  position: relative;
+  &::before{
+    content: '';
+    height: 1;
+    width: 100%;
+    border-radius: $borderRadius;
+    @if $position == 'all' {
+      border: 1px solid $color;
+      height: 200%;
+      width: 200%;
+    } @else {
+      border-#{$position}: 1px solid $color; 
+    }
+    @extend .absolute-full;
+  }
+  @media screen and (-webkit-min-device-pixel-ratio: 2) {
+    &::before{
+      @if $position == 'all' {
+        @include scale(.5);
+        @include transform-origin(0, 0);
+      } @else {
+        @include scaleY(.5);
+        @include transform-origin(0, 100%);
+      }
+    }
+  }
+}

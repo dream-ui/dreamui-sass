@@ -1,0 +1,164 @@
+
+@import "./animation";
+@import "./borderAndBox";
+@import "./flexbox";
+@import "./transformation";
+@import "./transition";
+
+@mixin single-line-ellipsis {  /* 文本单行省略号 */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+@mixin linear-gradient($desc...){
+  background:    -moz-linear-gradient($desc);
+  background:      -o-linear-gradient($desc);
+  background:         linear-gradient($desc);
+  background: -webkit-linear-gradient($desc);
+}
+@mixin placeholder($color: $input-color-placeholder, $text-indent: 0) {
+  &::-moz-placeholder { 
+    color: $color;
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+  &::-webkit-input-placeholder {
+    color: $color;
+    text-indent: $text-indent;  //Safari placeholder margin issue
+  }
+}
+@mixin placeholder-force($color: $input-color-placeholder, $text-indent: 0) {
+  &::-moz-placeholder { 
+    color: $color !important;
+  }
+  &:-ms-input-placeholder {
+    color: $color !important;
+  }
+  &::-webkit-input-placeholder {
+    color: $color !important;
+    text-indent: $text-indent !important;  //Safari placeholder margin issue
+  }
+}
+$placeholder-list: '::-moz-placeholder', ':-ms-input-placeholder', '::-webkit-input-placeholder';
+// Usages:
+//   @each $placeholder in $placeholder-list {
+//     input#{$placeholder} {
+//       background: red;
+//     }
+//   }
+@mixin circle($radius){
+    width: $radius;
+    height: $radius;
+    border-radius: $radius;
+}
+@mixin arrow-triangle($border-width: 10, $direction: 'left', $color: 'blue') {
+  width: 0;
+  height: 0;
+  $dir: 'top';
+  @each $dir in 'top', 'bottom', 'left', 'right' {
+    @if ($dir != $direction) {
+      border-#{$dir}: #{$border-width}px solid transparent;
+    }
+  }
+  @if ($direction == 'left') {
+    border-right-color: $color;
+  } @else if ($direction == 'right') {
+    border-left-color: $color;
+  } @else if ($direction == 'top') {
+    border-bottom-color: $color;
+  } @else if ($direction == 'bottom') {
+    border-top-color: $color;
+  }
+}
+@mixin arrow-triangle-up($border-width: 10, $color: 'blue'){
+  @include arrow-triangle($border-width, 'top', $color);
+}
+@mixin arrow-triangle-down($border-width: 10, $color: 'blue'){
+  @include arrow-triangle($border-width, 'bottom', $color);
+}
+@mixin arrow-triangle-left($border-width: 10, $color: 'blue'){
+  @include arrow-triangle($border-width, 'left', $color);
+}
+@mixin arrow-triangle-right($border-width: 10, $color: 'blue'){
+  @include arrow-triangle($border-width, 'right', $color);
+}
+
+// $type: success、error、loading
+@mixin xui-checkbox-amination($time, $size, $colorInactive, $colorActive, $type){
+  height: $size;
+  width: $size;
+  border: 1px solid $colorInactive;
+  border-radius: 100%;
+  @extend .flex-center;
+  vertical-align: middle;
+  line-height: $size;
+  @include transition($time linear background);
+  position: relative;
+  &::after, &::before{
+    content: '';
+    width: 50%;
+    height: 25%;
+    border-bottom: 2px solid white;
+    border-left: 2px solid white;
+    // display: none;
+    display: inline-block;    
+    transition: $time linear transform;
+    position: absolute;
+  }
+  &.active{
+    border: 1px solid $colorActive;
+    background-color: $colorActive;
+  }
+  @if $type == 'success' {
+    &::after{
+      @include transform(scale(0) rotate(-45deg));
+      top: 25%;
+    }
+    &::before{ 
+      display: none; 
+    }
+    &.active{
+      &::after{
+        @include transform(scale(1) rotate(-45deg));
+      }
+    }
+  } @else if $type == 'error' {
+    &::after, &::before{
+      height: 2px;
+      width: 70%;
+      border-left: 0px;
+      left: 20%;
+    }
+    &::after{
+      @include transform(scale(0) rotate(0));
+    }
+    &::before{
+      @include transform(scale(1) rotate(90deg));
+      top: 45%;
+    }
+    &.active{
+      &::after{
+        @include transform(scale(1) rotate(45deg));
+      }
+      &::before{
+        @include transform(scale(1) rotate(135deg));
+      }
+    }
+  } @else {
+
+  }
+}
+
+@mixin user-select($select){
+  user-select: $select;
+  -webkit-user-select: $select;
+  -moz-user-select: $select;
+  -ms-user-select: $select;
+}
+
+@mixin appearance($val) {
+  -webkit-appearance: $val;
+     -moz-appearance: $val;
+          appearance: $val;
+} 
