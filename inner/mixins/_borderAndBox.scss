@@ -38,6 +38,7 @@
 @mixin thin-border($color, $position: 'all', $borderRadius: 'initial'){
   position: relative;
   &::before{
+    pointer-events: none;
     content: '';
     height: 1;
     width: 100%;
@@ -49,7 +50,11 @@
     } @else {
       border-#{$position}: 1px solid $color; 
     }
-    @extend .absolute-full;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
   @media screen and (-webkit-min-device-pixel-ratio: 2) {
     &::before{

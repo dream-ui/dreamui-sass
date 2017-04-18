@@ -4,49 +4,15 @@
 @import "./flexbox";
 @import "./transformation";
 @import "./transition";
+@import "./_text.scss";
 
-@mixin single-line-ellipsis {  /* 文本单行省略号 */
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
 @mixin linear-gradient($desc...){
   background:    -moz-linear-gradient($desc);
   background:      -o-linear-gradient($desc);
   background:         linear-gradient($desc);
   background: -webkit-linear-gradient($desc);
 }
-@mixin placeholder($color: $input-color-placeholder, $text-indent: 0) {
-  &::-moz-placeholder { 
-    color: $color;
-  }
-  &:-ms-input-placeholder {
-    color: $color;
-  }
-  &::-webkit-input-placeholder {
-    color: $color;
-    text-indent: $text-indent;  //Safari placeholder margin issue
-  }
-}
-@mixin placeholder-force($color: $input-color-placeholder, $text-indent: 0) {
-  &::-moz-placeholder { 
-    color: $color !important;
-  }
-  &:-ms-input-placeholder {
-    color: $color !important;
-  }
-  &::-webkit-input-placeholder {
-    color: $color !important;
-    text-indent: $text-indent !important;  //Safari placeholder margin issue
-  }
-}
-$placeholder-list: '::-moz-placeholder', ':-ms-input-placeholder', '::-webkit-input-placeholder';
-// Usages:
-//   @each $placeholder in $placeholder-list {
-//     input#{$placeholder} {
-//       background: red;
-//     }
-//   }
+
 @mixin circle($radius){
     width: $radius;
     height: $radius;

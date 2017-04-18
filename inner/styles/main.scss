@@ -60,6 +60,10 @@
   }
 }
 
+.pre-text-break {
+  @include pre-text-break()
+}
+
 .model-fixed-full{
   position: fixed;
   top: 0;
