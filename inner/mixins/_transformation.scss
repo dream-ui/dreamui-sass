@@ -13,6 +13,9 @@
 @mixin translateX($x) {
   @include transform( translate($x, 0) );
 }
+@mixin translateY($y) {
+  @include transform( translate(0, $y) );
+}
 @mixin scaleY($y) {
   @include transform( scaleY($y) );
 }
