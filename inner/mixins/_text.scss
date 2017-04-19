@@ -4,6 +4,13 @@
   text-overflow: ellipsis;
 }
 
+@mixin multi-line-ellipsis ($line: 1) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+  overflow: hidden;
+}
+
 @mixin placeholder {
   &::-moz-placeholder { 
     @content;
