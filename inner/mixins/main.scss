@@ -7,16 +7,16 @@
 @import "./_text.scss";
 
 @mixin linear-gradient($desc...){
-  background:    -moz-linear-gradient($desc);
-  background:      -o-linear-gradient($desc);
-  background:         linear-gradient($desc);
   background: -webkit-linear-gradient($desc);
+  background: -moz-linear-gradient($desc);
+  background: -o-linear-gradient($desc);
+  background: linear-gradient($desc);
 }
 
 @mixin circle($radius){
-    width: $radius;
-    height: $radius;
-    border-radius: $radius;
+  width: $radius;
+  height: $radius;
+  border-radius: $radius;
 }
 @mixin arrow-triangle($border-width: 10, $direction: 'left', $color: 'blue') {
   width: 0;
@@ -52,17 +52,17 @@
 
 // $type: success、error、loading
 @mixin xui-checkbox-amination($time, $size, $colorInactive, $colorActive, $type){
+  @extend .flex-center;
+  @include transition($time linear background);
   height: $size;
   width: $size;
   border: 1px solid $colorInactive;
   border-radius: 100%;
-  @extend .flex-center;
   vertical-align: middle;
   line-height: $size;
-  @include transition($time linear background);
   position: relative;
   &::after, &::before{
-    content: '';
+    content: '';  // sass-lint:disable-line variable-for-property property-sort-order
     width: 50%;
     height: 25%;
     border-bottom: 2px solid white;
@@ -125,6 +125,6 @@
 
 @mixin appearance($val) {
   -webkit-appearance: $val;
-     -moz-appearance: $val;
-          appearance: $val;
+     -moz-appearance: $val; // sass-lint:disable-line indentation
+          appearance: $val; // sass-lint:disable-line indentation
 } 

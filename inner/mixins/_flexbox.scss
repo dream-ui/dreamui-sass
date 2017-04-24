@@ -18,12 +18,12 @@
   display: inline-flex;
 }
 @mixin display-flex-important {
-  display: -webkit-box !important;
-  display: -webkit-flex !important;
-  display: -moz-box !important;
-  display: -moz-flex !important;
-  display: -ms-flexbox !important;
-  display: flex !important;
+  display: -webkit-box !important;  // sass-lint:disable-line no-important
+  // display: -webkit-flex !important; // sass-lint:disable-line no-important
+  display: -moz-box !important; // sass-lint:disable-line no-important
+  display: -moz-flex !important;  // sass-lint:disable-line no-important
+  display: -ms-flexbox !important;  // sass-lint:disable-line no-important
+  display: flex !important; // sass-lint:disable-line no-important
 }
 @mixin flex-direction($value: row) {
   @if $value == row-reverse {
@@ -49,9 +49,9 @@
   -webkit-flex-wrap: $value;
   -moz-flex-wrap: $value;
   @if $value == nowrap {
-      -ms-flex-wrap: none;
+    -ms-flex-wrap: none;
   } @else {
-      -ms-flex-wrap: $value;
+    -ms-flex-wrap: $value;
   }
   flex-wrap: $value;
 }

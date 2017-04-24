@@ -4,7 +4,7 @@
   "description": "tools for sass. contain some of common mixin and style definition.",
   "main": "index.scss",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/.bin/sass-lint"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/borenXue/tools_sass/issues"
   },
-  "homepage": "https://github.com/borenXue/tools_sass#readme"
+  "homepage": "https://github.com/borenXue/tools_sass#readme",
+  "devDependencies": {
+    "sass-lint": "^1.10.2"
+  }
 }
