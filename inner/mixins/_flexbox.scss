@@ -19,7 +19,7 @@
 }
 @mixin display-flex-important {
   display: -webkit-box !important;  // sass-lint:disable-line no-important
-  // display: -webkit-flex !important; // sass-lint:disable-line no-important
+  display: -webkit-flex !important; // sass-lint:disable-line no-important
   display: -moz-box !important; // sass-lint:disable-line no-important
   display: -moz-flex !important;  // sass-lint:disable-line no-important
   display: -ms-flexbox !important;  // sass-lint:disable-line no-important
