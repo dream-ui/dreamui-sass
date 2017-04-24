@@ -113,3 +113,15 @@ $xui_progressing_i: 0;
   }
   $xui_progressing_i: $xui_progressing_i+1;
 }
+
+.vcenter {
+  position: relative;
+  &.vcenter-child {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
