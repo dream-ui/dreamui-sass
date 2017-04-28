@@ -34,9 +34,9 @@
 }
 @mixin transform($val) {
   -webkit-transform: $val;
-          transform: $val;
+  transform: $val;
 }
 @mixin transform-origin($left, $top) {
   -webkit-transform-origin: $left $top;
-          transform-origin: $left $top;
+  transform-origin: $left $top;
 }

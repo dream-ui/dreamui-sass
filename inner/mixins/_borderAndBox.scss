@@ -3,11 +3,11 @@
  */
 @mixin box-shadow($shadow...) {
   -webkit-box-shadow: $shadow;
-          box-shadow: $shadow;
+  box-shadow: $shadow;
 } 
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius; 
-          border-radius: $radius;
+  border-radius: $radius;
 }
 @mixin border-top-right-radius($radius){
   -webkit-border-top-right-radius:  $radius;
@@ -15,9 +15,9 @@
 }
 @mixin border-top-radius($radius){
   -webkit-border-top-left-radius:   $radius;
-          border-top-left-radius:   $radius;
+  border-top-left-radius:   $radius;
   -webkit-border-top-right-radius:  $radius;
-          border-top-right-radius:  $radius;
+  border-top-right-radius:  $radius;
 }
 
 @mixin thin-border-bottom($color){
@@ -39,7 +39,7 @@
   position: relative;
   &::before{
     pointer-events: none;
-    content: '';
+    content: '';    // sass-lint:disable-line variable-for-property
     height: 1;
     width: 100%;
     border-radius: $borderRadius;
