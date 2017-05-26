@@ -53,7 +53,7 @@
 
 // $type: success、error、loading
 @mixin xui-checkbox-amination($time, $size, $colorInactive, $colorActive, $type){
-  @extend .flex-center;
+  @extend %flex-center;
   @include transition($time linear background);
   height: $size;
   width: $size;
