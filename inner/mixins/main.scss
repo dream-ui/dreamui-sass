@@ -5,6 +5,7 @@
 @import "./transformation";
 @import "./transition";
 @import "./_text.scss";
+@import "./ui";
 
 @mixin linear-gradient($desc...){
   background: -webkit-linear-gradient($desc);

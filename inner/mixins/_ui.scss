@@ -1,0 +1,33 @@
+/**
+ * grid class: use flex.
+ *    .xui-row
+ *      .xui-col-0 ~ .xui-col-100
+ */
+@mixin xui-row () {
+  .xui-row{
+    @include display-flex;
+    @include align-items(center);
+  }
+  $xui_col_per: 0;
+  @while $xui_col_per <= 100 {
+    .xui-col-#{$xui_col_per} {
+      @include flex(#{$xui_col_per});
+    }
+    $xui_col_per: $xui_col_per+1;
+  }
+}
+
+/**
+ * pregress class: use `right` protopety.
+ *    .xui-row
+ *      .xui-col-0 ~ .xui-col-100
+ */
+@mixin xui-progressing () {
+  $xui_progressing_i: 0;
+  @while $xui_progressing_i <= 100 {
+    .xui-progressing-#{$xui_progressing_i} {
+      right: #{100-$xui_progressing_i};
+    }
+    $xui_progressing_i: $xui_progressing_i+1;
+  }
+}
