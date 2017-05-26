@@ -1,6 +1,12 @@
 /**
  *  border and box Mixins 
  */
+
+@mixin square($width) {
+  width: $width;
+  height: $width;
+}
+
 @mixin box-shadow($shadow...) {
   -webkit-box-shadow: $shadow;
   box-shadow: $shadow;

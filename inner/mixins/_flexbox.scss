@@ -154,3 +154,8 @@
     }
   }
 }
+
+@mixin v-center {
+  @include display-flex;
+  @include align-items(center);
+}
