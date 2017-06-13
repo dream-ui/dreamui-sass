@@ -41,18 +41,19 @@
 @mixin thin-border-all($color, $borderRadius: 'initial'){
   @include thin-border($color, 'all', $borderRadius);
 }
+// TODO: 使用bottom的元素，需要设置 margin-bottom: 1px;
 @mixin thin-border($color, $position: 'all', $borderRadius: 'initial'){
   position: relative;
   &::before{
     pointer-events: none;
     content: '';    // sass-lint:disable-line variable-for-property
-    height: 1;
-    width: 100%;
+    // height: 1;
+    // width: 100%;
     border-radius: $borderRadius;
+    height: 200%;
+    width: 200%;
     @if $position == 'all' {
       border: 1px solid $color;
-      height: 200%;
-      width: 200%;
     } @else {
       border-#{$position}: 1px solid $color; 
     }
@@ -64,12 +65,15 @@
   }
   @media screen and (-webkit-min-device-pixel-ratio: 2) {
     &::before{
+      // height: 200%;
+      // width: 200%;
       @if $position == 'all' {
         @include scale(.5);
         @include transform-origin(0, 0);
       } @else {
-        @include scaleY(.5);
-        @include transform-origin(0, 100%);
+        // @include scaleY(.5);
+        @include scale(.5);
+        @include transform-origin(0, 0);
       }
     }
   }
