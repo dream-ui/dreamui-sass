@@ -46,7 +46,9 @@ $ git submodule add https://github.com/borenXue/tools_sass.git public_modules/to
 * GIT-Subtree
 
 ```bash
-## TODO:
+git remote add tools_sass https://github.com/borenXue/tools_sass.git
+$ git subtree add --prefix=public_modules/tools_sass tools_sass master
+$ git subtree pull --prefix=public_modules/tools_sass tools_sass master
 ```
 
 ### Usage
