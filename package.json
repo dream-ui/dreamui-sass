@@ -4,7 +4,10 @@
   "description": "tools for sass. contain some of common mixin and style definition.",
   "main": "index.scss",
   "scripts": {
-    "test": "node_modules/.bin/sass-lint"
+    "lint": "node_modules/.bin/sass-lint",
+    "test": "sass test/test.scss test/test.css",
+    "test:watch": "sass --watch test/test.scss:test/test.css",
+    "test:liveload": "node_modules/.bin/browser-sync start --server 'test' --files 'test/*.css, test/*.html'"
   },
   "repository": {
     "type": "git",
@@ -21,6 +24,7 @@
   },
   "homepage": "https://github.com/borenXue/tools_sass#readme",
   "devDependencies": {
+    "browser-sync": "^2.18.12",
     "sass-lint": "^1.10.2"
   }
 }
