@@ -1,0 +1,24 @@
+
+@import "./../index.scss";
+
+body {
+  background-color: rgba(158, 158, 158, 0.13);
+}
+
+.demos {
+  text-align: center;
+  &>div {
+    margin-top: 20px;
+  }
+}
+.xui-checkbox-amination {
+  display: inline-block;
+  @include xui-checkbox-amination(100ms, 500px, red, blue, success);
+}
+// .demo-xui-checkbox-amination:active {
+//   background: yellow;
+// }
+
+.arrow-triangle {
+  @include arrow-triangle();
+}
