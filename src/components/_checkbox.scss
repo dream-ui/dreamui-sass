@@ -1,0 +1,65 @@
+// $type: success、error、loading
+@mixin xui-checkbox-amination($time, $size, $colorInactive, $colorActive, $type){
+  @extend %flex-center;
+  @include transition($time linear background);
+  height: $size;
+  width: $size;
+  border: 1px solid $colorInactive;
+  border-radius: 100%;
+  vertical-align: middle;
+  line-height: $size;
+  position: relative;
+  &::after, &::before{
+    content: '';  // sass-lint:disable-line variable-for-property property-sort-order
+    width: 50%;
+    height: 25%;
+    border-bottom: 2px solid white;
+    border-left: 2px solid white;
+    // display: none;
+    display: inline-block;    
+    transition: $time linear transform;
+    position: absolute;
+  }
+  &.active{
+    border: 1px solid $colorActive;
+    background-color: $colorActive;
+  }
+  @if $type == 'success' {
+    &::after{
+      @include transform(scale(0) rotate(-45deg));
+      top: 25%;
+    }
+    &::before{ 
+      display: none; 
+    }
+    &.active{
+      &::after{
+        @include transform(scale(1) rotate(-45deg));
+      }
+    }
+  } @else if $type == 'error' {
+    &::after, &::before{
+      height: 2px;
+      width: 70%;
+      border-left: 0px;
+      left: 20%;
+    }
+    &::after{
+      @include transform(scale(0) rotate(0));
+    }
+    &::before{
+      @include transform(scale(1) rotate(90deg));
+      top: 45%;
+    }
+    &.active{
+      &::after{
+        @include transform(scale(1) rotate(45deg));
+      }
+      &::before{
+        @include transform(scale(1) rotate(135deg));
+      }
+    }
+  } @else {
+
+  }
+}

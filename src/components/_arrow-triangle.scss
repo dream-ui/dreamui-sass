@@ -1,0 +1,31 @@
+@mixin arrow-triangle($border-width: 10, $direction: 'left', $color: blue) {
+  width: 0;
+  height: 0;
+  $dir: 'top';
+  @each $dir in 'top', 'bottom', 'left', 'right' {
+    @if ($dir != $direction) {
+      border-#{$dir}: #{$border-width}px solid transparent;
+    }
+  }
+  @if ($direction == 'left') {
+    border-right-color: $color;
+  } @else if ($direction == 'right') {
+    border-left-color: $color;
+  } @else if ($direction == 'top') {
+    border-bottom-color: $color;
+  } @else if ($direction == 'bottom') {
+    border-top-color: $color;
+  }
+}
+@mixin arrow-triangle-up($border-width: 10, $color: 'blue'){
+  @include arrow-triangle($border-width, 'top', $color);
+}
+@mixin arrow-triangle-down($border-width: 10, $color: 'blue'){
+  @include arrow-triangle($border-width, 'bottom', $color);
+}
+@mixin arrow-triangle-left($border-width: 10, $color: 'blue'){
+  @include arrow-triangle($border-width, 'left', $color);
+}
+@mixin arrow-triangle-right($border-width: 10, $color: 'blue'){
+  @include arrow-triangle($border-width, 'right', $color);
+}

@@ -1,0 +1,19 @@
+@mixin linear-gradient($desc...){
+  background: -webkit-linear-gradient($desc);
+  background: -moz-linear-gradient($desc);
+  background: -o-linear-gradient($desc);
+  background: linear-gradient($desc);
+}
+
+@mixin user-select($select){
+  user-select: $select;
+  -webkit-user-select: $select;
+  -moz-user-select: $select;
+  -ms-user-select: $select;
+}
+
+@mixin appearance($val) {
+  -webkit-appearance: $val;
+     -moz-appearance: $val; // sass-lint:disable-line indentation
+          appearance: $val; // sass-lint:disable-line indentation
+}
