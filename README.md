@@ -77,12 +77,37 @@ $ git subtree pull --prefix=public_modules/tools_sass tools_sass master
   +display-flex
 ```
 
+
+### Selector List
+
+
+| Selector | Desc |
+| -------- | ---- |
+| fill-parent | ---- |
+| fill-width | ---- |
+| fill-height | ---- |
+| max-fill-parent | ---- |
+| single-line-ellipsis | ---- |
+| flex-center | ---- |
+| flex-center-inline | ---- |
+| flex-left | ---- |
+| flex-space-between | ---- |
+| flex-h | ---- |
+| flex-v | ---- |
+| text-force-break | ---- |
+| model-fixed-full | ---- |
+| vcenter | ---- |
+| model-absolute-full | ---- |
+| uppercase | ---- |
+
+
+
 ### Mixin List
 
 
 | Module | SubModule | Mixin Name | Demo |
 | ---------- | ---------- |
-| Border-Box |  |  |  |
+| Border-Box |
 |  | -- | square | square(200px) |
 |  | -- | circle | circle(200px) |
 |  | -- | box-shadow | box-shadow(0 0 3px #525252) |
@@ -101,12 +126,12 @@ $ git subtree pull --prefix=public_modules/tools_sass tools_sass master
 |  |  | thin-border-bottom | thin-border-bottom(red) |
 |  |  | thin-border-left | thin-border-left(red) |
 |  |  | thin-border-right | thin-border-right(red) |
-| Text | | | |
+| Text |
 |  | -- | text-force-break | text-force-break() |
 |  | -- | single-line-ellipsis | single-line-ellipsis() |
 |  | -- | multi-line-ellipsis | multi-line-ellipsis(3) |
 |  | -- | placeholder | placeholder { ... } |
-| Flex | | | |
+| Flex |
 |  | -- | display-flex | display-flex() |
 |  | -- | display-inline-flex | display-inline-flex() |
 |  | -- | display-flex-important | display-flex-important() |
@@ -120,14 +145,14 @@ $ git subtree pull --prefix=public_modules/tools_sass tools_sass master
 |  | -- | justify-content | justify-content(stretch) |
 |  | -- | flex-order | flex-order(3) |
 |  | -- | responsive-grid-break | responsive-grid-break(.a-cls, 800px) |
-| Transition |  |  |  |
+| Transition |
 |  | core | transition | transition(height 300ms ease-in) |
 |  | -- | transition-delay | transition-delay(300ms) |
 |  | -- | transition-duration | transition-duration(300ms) |
 |  | -- | transition-timing-function | transition-timing-function(ease-in) |
 |  | -- | transition-property | transition-property(height) |
 |  | -- | transition-transform | transition-transform(height, width) |
-| Transform |  |  |  |
+| Transform |
 |  | core | transform | transform(scaleY(.5)) |
 |  | core | transform-origin | transform-origin(0, 0) |
 |  | -- | scale | scale(1, .5) |
@@ -140,7 +165,7 @@ $ git subtree pull --prefix=public_modules/tools_sass tools_sass master
 |  | -- | translate3d | translate3d(6px, 2px, 5px) |
 |  | -- | translateX | translateX(5px) |
 |  | -- | skew | skew(1px, 2px) |
-| Animation |  |  |  |
+| Animation |
 |  | -- | animation | animation(3s linear 1s slidein) |
 |  | -- | animation-duration | animation-duration(3s) |
 |  | -- | animation-direction | animation-direction(alternate-reverse) |
@@ -148,20 +173,13 @@ $ git subtree pull --prefix=public_modules/tools_sass tools_sass master
 |  | -- | animation-fill-mode | animation-fill-mode(both) |
 |  | -- | animation-name | animation-name(test-name) |
 |  | -- | animation-iteration-count | animation-iteration-count(3) |
-| UI |  |  |  |
+| UI |
 |  | -- | xui-row | xui-row(): .xui-row、.xui-col-0 ~ .xui-col-100 |
 |  | -- | xui-progressing | xui-progressing(): .xui-progressing-0 ~ .xui-progressing-100 |
-| Others |  |  |  |
+| Others |
 |  | -- | appearance | appearance(none) |
 |  | -- | user-select | user-select(none) |
 |  | -- | linear-gradient | linear-gradient(to left top, blue, red) |
-
-
-
-
-
-
-### placeholder-selector list
 
 ## Changelog
 

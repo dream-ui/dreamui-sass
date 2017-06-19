@@ -4,17 +4,35 @@
  *
  */
 
+/**
+ *  Usage:
+ *    .square-div {
+ *      @include square(10px);
+ *    }
+ */
 @mixin square($width) {
   width: $width;
   height: $width;
 }
 
+/**
+ *  Usage:
+ *    .circle-div {
+ *      @include circle(50px);
+ *    }
+ */
 @mixin circle($radius){
   width: $radius;
   height: $radius;
   border-radius: $radius;
 }
 
+/**
+ *  Usage:
+ *    .temp-div {
+ *      @include box-shadow(1px 1px 5px red);
+ *    }
+ */
 @mixin box-shadow($shadow...) {
   -webkit-box-shadow: $shadow;
   box-shadow: $shadow;
