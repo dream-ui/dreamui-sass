@@ -3,5 +3,4 @@ node_modules/
 dist/
 npm-debug.log
 .sass-cache/
-test/*.css
 test/*.css.map
