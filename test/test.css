@@ -67,8 +67,12 @@ body {
 
 .demos {
   text-align: center; }
-  .demos .type-block > div {
-    margin: 0 10px; }
+  .demos .type-block {
+    overflow: hidden;
+    -webkit-transition: height 250ms ease-in;
+    transition: height 250ms ease-in; }
+    .demos .type-block > div {
+      margin: 0 10px; }
 
 .tip-line {
   display: block;
@@ -80,8 +84,7 @@ body {
   .tip-line.large {
     background: white;
     -webkit-box-shadow: 0px 0px 3px 0px #525252;
-    box-shadow: 0px 0px 3px 0px #525252;
-    margin: 30px 0; }
+    box-shadow: 0px 0px 3px 0px #525252; }
     .tip-line.large.first {
       margin-top: 0; }
 

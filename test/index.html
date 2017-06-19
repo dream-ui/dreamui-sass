@@ -11,7 +11,7 @@
 
   <div class="demos">
 
-    <span class="tip-line large first"> border-and-box </span>
+    <span id="border-and-box-block" class="tip-line large first"> border-and-box </span>
 
     <div class="type-block border-and-box-block ">
       <span class="tip-line"> thin-border 系列 </span>
@@ -57,10 +57,8 @@
     
 
 
-
+    <span class="tip-line large" id="text-demos-block"> Text 相关</span>
     <div class="type-block text-demos-block">
-      <span class="tip-line large"> Text 相关</span>
-
       <div class="tip-line">强制换行</div>
       <div class="text-force-break">测试文本测试文本测试文本测试文本测试文本测试文本测试文本012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</div>
 
@@ -78,19 +76,40 @@
         <input type="text" class="placeholder-input" placeholder="placeholder 示例">
       </div>
     </div>
-    
 
 
 
-    <span class="tip-line large"> UI 组件 </span>
 
-    <span class="tip-line"> xui-checkbox-amination </span>
-    <div class="xui-checkbox-amination">cbox</div>
+    <span id="ui-demos-block" class="tip-line large"> UI 组件 </span>
+    <div class="type-block ui-demos-block">
+      <span class="tip-line"> xui-checkbox-amination </span>
+      <div class="xui-checkbox-amination">cbox</div>
 
-    <span class="tip-line"> arrow-triangle </span>
-    <div class="arrow-triangle"></div>
+      <span class="tip-line"> arrow-triangle </span>
+      <div class="arrow-triangle"></div>
+    </div>
 
   </div>
 
+  <script>
+    var idEles = document.querySelectorAll('span.tip-line.large');
+    for (var i = 0; i < idEles.length; i++) {
+      var idEle = idEles[i];
+      if (idEle && idEle.id) {
+        var str = '.type-block.' + idEle.id.trim()
+        var child = document.querySelector(str);
+        child.setAttribute('style', 'height: 0px;')
+        idEle.onclick = function () {
+          var parent = this
+          var thisChild = document.querySelector('.type-block.' + parent.id.trim());
+          if (thisChild.clientHeight === 0) {
+            thisChild.setAttribute('style', 'height: ' + thisChild.scrollHeight + 'px;')
+          } else {
+            thisChild.setAttribute('style', 'height: 0;')
+          }
+        }
+      }
+    }
+  </script>
 </body>
 </html>
