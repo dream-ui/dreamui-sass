@@ -1,0 +1,115 @@
+/**
+ *
+ * suare
+ *
+ */
+.suare-50-px {
+  @include square(50px);
+  background: #8BC34A;
+}
+
+.circle-50-px {
+  @include circle(50px);
+  background: #8BC34A;
+}
+
+/**
+ *
+ * thin-border
+ *
+ */
+.demos-border-radius {
+  text-align: left;
+  &>div {
+    background: #8bc34a;
+    margin-bottom: 5px;
+    display: inline-block;
+    overflow: hidden;
+    @include square(50px);
+  }
+
+  .border-top-radius {
+    @include border-top-radius(10px)
+  }
+  .border-bottom-radius {
+    @include border-bottom-radius(10px);
+  }
+  .border-left-radius {
+    @include border-left-radius(10px);
+  }
+  .border-right-radius {
+    @include border-right-radius(10px);
+  }
+
+  .border-top-right-radius {
+    @include border-top-right-radius(10px);
+  }
+  .border-top-left-radius {
+    @include border-top-left-radius(10px);
+  }
+  .border-bottom-right-radius {
+    @include border-bottom-right-radius(10px);
+  }
+  .border-bottom-left-radius {
+    @include border-bottom-left-radius(10px);
+  }
+
+  .border-radius-all {
+    @include border-radius(10px);
+  }  
+}
+
+/**
+ *
+ * thin-border
+ *
+ */
+.demo-thin-border {
+  text-align: left;
+  &>div {
+    width: 90px;
+    height: 50px;
+    background: rgba(4, 4, 4, 0.06);
+    margin-top: 3px;
+    display: inline-block;
+    word-break: break-all;
+    word-wrap: break-word;
+    overflow: hidden;
+  }
+  .seg-desc {
+    background: transparent;
+    text-align: center;
+    line-height: 50px;
+    color: rgba(0, 0, 0, 0.55);
+  }
+  .top-border {
+    @include thin-border-top(red);
+  }
+  .left-border {
+    @include thin-border-left(red);
+  }
+  .right-border {
+    @include thin-border-right(red);
+  }
+  .bottom-border {
+    @include thin-border-bottom(red);
+  }
+  .all-border {
+    @include thin-border-all(red);
+  }
+  .after-top-border {
+    @include thin-border-top(red, initial, 'after');
+  }
+  .after-left-border {
+    @include thin-border-left(red, initial, 'after');
+  }
+  .after-right-border {
+    @include thin-border-right(red, initial, 'after');
+  }
+  .after-bottom-border {
+    @include thin-border-bottom(red, initial, 'after');
+  }
+  .after-all-border {
+    @include thin-border-all(red, initial, 'after');
+  }
+}

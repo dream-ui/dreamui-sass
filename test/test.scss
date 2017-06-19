@@ -1,24 +1,25 @@
 
 @import "./../index.scss";
 
-body {
-  background-color: rgba(158, 158, 158, 0.13);
-}
+@import "./sass/_base.scss";
+@import "./sass/_border-and-box.scss";
 
-.demos {
-  text-align: center;
-  &>div {
-    margin-top: 20px;
-  }
-}
+/**
+ *
+ *  xui-checkbox-amination
+ *
+ */
 .xui-checkbox-amination {
   display: inline-block;
-  @include xui-checkbox-amination(100ms, 500px, red, blue, success);
+  @include xui-checkbox-amination(100ms, 50px, red, blue, success);
 }
-// .demo-xui-checkbox-amination:active {
-//   background: yellow;
-// }
 
+/**
+ *
+ *  arrow-triangle
+ *
+ */
 .arrow-triangle {
   @include arrow-triangle();
 }
+

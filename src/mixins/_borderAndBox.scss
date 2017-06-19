@@ -1,5 +1,7 @@
 /**
+ *
  *  border and box Mixins 
+ *
  */
 
 @mixin square($width) {
@@ -17,6 +19,10 @@
   -webkit-box-shadow: $shadow;
   box-shadow: $shadow;
 } 
+
+/**
+ * border-radius
+ */
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius; 
   border-radius: $radius;
@@ -25,59 +31,80 @@
   -webkit-border-top-right-radius:  $radius;
   border-top-right-radius:  $radius;
 }
-@mixin border-top-radius($radius){
-  -webkit-border-top-left-radius:   $radius;
-  border-top-left-radius:   $radius;
-  -webkit-border-top-right-radius:  $radius;
-  border-top-right-radius:  $radius;
+@mixin border-top-left-radius($radius){
+  -webkit-border-top-left-radius:  $radius;
+  border-top-left-radius:  $radius;
+}
+@mixin border-bottom-right-radius($radius){
+  -webkit-border-bottom-right-radius:  $radius;
+  border-bottom-right-radius:  $radius;
+}
+@mixin border-bottom-left-radius($radius){
+  -webkit-border-bottom-left-radius:  $radius;
+  border-bottom-left-radius:  $radius;
 }
 
-@mixin thin-border-bottom($color){
-  @include thin-border($color, 'bottom');
+@mixin border-top-radius($radius){
+  @include border-top-right-radius($radius);
+  @include border-top-left-radius($radius);
 }
-@mixin thin-border-top($color){
-  @include thin-border($color, 'top');
+@mixin border-bottom-radius($radius){
+  @include border-bottom-right-radius($radius);
+  @include border-bottom-left-radius($radius);
 }
-@mixin thin-border-left($color){
-  @include thin-border($color, 'left');
+@mixin border-left-radius($radius){
+  @include border-bottom-left-radius($radius);
+  @include border-top-left-radius($radius);
 }
-@mixin thin-border-right($color){
-  @include thin-border($color, 'right');
+@mixin border-right-radius($radius){
+  @include border-top-right-radius($radius);
+  @include border-bottom-right-radius($radius);
 }
-@mixin thin-border-all($color, $borderRadius: 'initial'){
-  @include thin-border($color, 'all', $borderRadius);
+
+/**
+ * thin-border
+ */
+@mixin thin-border-bottom($color, $borderRadius: initial, $beforeAfter: before){
+  @include thin-border($color, 'bottom', $borderRadius, $beforeAfter);
 }
-// TODO: 使用bottom的元素，需要设置 margin-bottom: 1px;
-@mixin thin-border($color, $position: 'all', $borderRadius: 'initial'){
+@mixin thin-border-top($color, $borderRadius: initial, $beforeAfter: before){
+  @include thin-border($color, 'top', $borderRadius, $beforeAfter);
+}
+@mixin thin-border-left($color, $borderRadius: initial, $beforeAfter: before){
+  @include thin-border($color, 'left', $borderRadius, $beforeAfter);
+}
+@mixin thin-border-right($color, $borderRadius: initial, $beforeAfter: before){
+  @include thin-border($color, 'right', $borderRadius, $beforeAfter);
+}
+@mixin thin-border-all($color, $borderRadius: initial, $beforeAfter: before){
+  @include thin-border($color, 'all', $borderRadius, $beforeAfter);
+}
+@mixin thin-border($color, $position: 'all', $borderRadius: initial, $beforeAfter: before){
   position: relative;
-  &::before{
+  &::#{$beforeAfter}{
+    box-sizing: border-box;
     pointer-events: none;
     content: '';    // sass-lint:disable-line variable-for-property
-    // height: 1;
-    // width: 100%;
     border-radius: $borderRadius;
     height: 200%;
     width: 200%;
-    @if $position == 'all' {
-      border: 1px solid $color;
-    } @else {
-      border-#{$position}: 1px solid $color; 
-    }
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    @if $position == 'all' {
+      border: 1px solid $color;
+    } @else {
+      border-#{$position}: 1px solid $color; 
+    }
   }
   @media screen and (-webkit-min-device-pixel-ratio: 2) {
-    &::before{
-      // height: 200%;
-      // width: 200%;
+    &::#{$beforeAfter}{
       @if $position == 'all' {
         @include scale(.5);
         @include transform-origin(0, 0);
       } @else {
-        // @include scaleY(.5);
         @include scale(.5);
         @include transform-origin(0, 0);
       }
