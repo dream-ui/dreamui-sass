@@ -19,8 +19,7 @@
 
 /**
  * pregress class: use `right` protopety.
- *    .xui-row
- *      .xui-col-0 ~ .xui-col-100
+ *    .xui-progressing-0 ~ .xui-progressing-100
  */
 @mixin xui-progressing () {
   $xui_progressing_i: 0;
