@@ -6,10 +6,10 @@ body {
 
 .demos {
   text-align: center;
-  &>div {
-    // margin-top: 20px;
-    // padding: 0 10px;
-    margin: 0 10px;
+  .type-block {
+    &>div {
+      margin: 0 10px;
+    }
   }
 }
 .tip-line {

@@ -1,0 +1,30 @@
+
+.text-force-break {
+  text-align: left;
+  @include text-force-break;
+}
+
+.single-line-ellipsis {
+  @include single-line-ellipsis;
+}
+
+.multi-line-ellipsis-three {
+  @include multi-line-ellipsis(3);
+}
+
+.multi-line-ellipsis-two {
+  @include multi-line-ellipsis(2);
+}
+
+.placeholder-all {
+  .placeholder-input {
+    width: 100%;
+    height: 2rem;
+    @include placeholder {
+      color: red;
+      font-size: 0.6rem;
+      line-height: 2rem;
+      background: rgb(139, 195, 74);
+    }
+  }
+}

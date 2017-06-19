@@ -1,3 +1,14 @@
+
+@mixin text-force-break {
+  white-space: pre-wrap; /* css-3 */ 
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */ 
+  white-space: -pre-wrap; /* Opera 4-6 */ 
+  white-space: -o-pre-wrap; /* Opera 7 */ 
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
+  word-break: break-all;
+  text-align: left;
+}
+
 @mixin single-line-ellipsis {  /* 文本单行省略号 */
   overflow: hidden;
   white-space: nowrap;
@@ -9,6 +20,7 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: $line;
   overflow: hidden;
+  @include text-force-break;
 }
 
 @mixin placeholder {
@@ -54,11 +66,3 @@
 //       background: red;
 //     }
 //   }
-
-@mixin pre-text-break {
-  white-space: pre-wrap; /* css-3 */ 
-  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */ 
-  white-space: -pre-wrap; /* Opera 4-6 */ 
-  white-space: -o-pre-wrap; /* Opera 7 */ 
-  word-wrap: break-word; /* Internet Explorer 5.5+ */ 
-}
