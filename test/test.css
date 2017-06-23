@@ -8,6 +8,24 @@
  *
  */
 /**
+ *  Usage:
+ *    .square-div {
+ *      @include square(10px);
+ *    }
+ */
+/**
+ *  Usage:
+ *    .circle-div {
+ *      @include circle(50px);
+ *    }
+ */
+/**
+ *  Usage:
+ *    .temp-div {
+ *      @include box-shadow(1px 1px 5px red);
+ *    }
+ */
+/**
  * border-radius
  */
 /**
@@ -29,21 +47,25 @@
  */
 /**
  * pregress class: use `right` protopety.
- *    .xui-row
- *      .xui-col-0 ~ .xui-col-100
+ *    .xui-progressing-0 ~ .xui-progressing-100
  */
 /**
  *
  * public style class
  *  
  */
-.xui-checkbox-amination {
+.flex-demos-block .child.center, .flex-child-demos-block .child.center, .flex-allin-demos-block .child.center, .xui-checkbox-amination {
   display: -webkit-box;
+  /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
   display: -webkit-flex;
+  /* 新版本语法: Chrome 21+ */
   display: -moz-box;
+  /* 老版本语法: Firefox (buggy) */
   display: -moz-flex;
   display: -ms-flexbox;
+  /* 混合版本语法: IE 10 */
   display: flex;
+  /* 新版本语法: Opera 12.1, Firefox 22+ */
   -webkit-box-align: center;
   -ms-flex-align: center;
   -webkit-align-items: center;
@@ -63,7 +85,8 @@
 body {
   background-color: rgba(158, 158, 158, 0.13);
   padding: 0;
-  margin: 0; }
+  margin: 0;
+  padding-bottom: 10rem; }
 
 .demos {
   text-align: center; }
@@ -77,12 +100,13 @@ body {
 .tip-line {
   display: block;
   background-color: rgba(0, 0, 0, 0.06);
-  height: 2rem;
-  line-height: 2rem;
+  line-height: 1.5rem;
+  min-height: 2rem;
   color: rgba(6, 6, 6, 0.35);
   margin: 10px 0; }
   .tip-line.large {
     background: white;
+    line-height: 2rem;
     -webkit-box-shadow: 0px 0px 3px 0px #525252;
     box-shadow: 0px 0px 3px 0px #525252; }
     .tip-line.large.first {
@@ -464,6 +488,949 @@ body {
 
 /**
  *
+ * 父元素属性
+ *
+ */
+.flex-demos-block {
+  /**
+   * flex-direction 相关: row | row-reverse | column | column-reverse;
+   */
+  /**
+   * flex-wrap 相关: nowrap | wrap | wrap-reverse
+   */
+  /**
+   * flex-flow: <flex-direction> || <flex-wrap>
+   */
+  /**
+   * TODO: justify-content: flex-start | flex-end | center | space-between | space-around
+   */
+  /**
+   * TODO: align-items: flex-start | flex-end | center | baseline | stretch
+   */
+  /**
+   * align-content: flex-start | flex-end | center | space-between | space-around | stretch
+   */ }
+  .flex-demos-block [class*=parent] {
+    height: 3rem;
+    box-sizing: content-box;
+    border: 1px solid red; }
+  .flex-demos-block .child {
+    background-color: rgba(0, 128, 0, 0.21);
+    margin: 0 2px; }
+  .flex-demos-block > div.tip-line:nth-of-type(n+2) {
+    margin-top: .6rem; }
+  .flex-demos-block .flex-direction-demo [class*=parent]:nth-of-type(n+2) {
+    margin-top: .2rem; }
+  .flex-demos-block .flex-direction-demo .child {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1; }
+  .flex-demos-block .flex-direction-demo .parent-row {
+    display: -webkit-box;
+    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+    display: -webkit-flex;
+    /* 新版本语法: Chrome 21+ */
+    display: -moz-box;
+    /* 老版本语法: Firefox (buggy) */
+    display: -moz-flex;
+    display: -ms-flexbox;
+    /* 混合版本语法: IE 10 */
+    display: flex;
+    /* 新版本语法: Opera 12.1, Firefox 22+ */
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row; }
+  .flex-demos-block .flex-direction-demo .parent-row-reverse {
+    display: -webkit-box;
+    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+    display: -webkit-flex;
+    /* 新版本语法: Chrome 21+ */
+    display: -moz-box;
+    /* 老版本语法: Firefox (buggy) */
+    display: -moz-flex;
+    display: -ms-flexbox;
+    /* 混合版本语法: IE 10 */
+    display: flex;
+    /* 新版本语法: Opera 12.1, Firefox 22+ */
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: horizontal;
+    -webkit-flex-direction: row-reverse;
+    -moz-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse; }
+  .flex-demos-block .flex-direction-demo .parent-column {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -moz-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 30%;
+    height: 10rem; }
+  .flex-demos-block .flex-direction-demo .parent-column-reverse {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -moz-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column-reverse;
+    -moz-flex-direction: column-reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+    width: 30%;
+    height: 10rem; }
+  .flex-demos-block .flex-wrap-demo .child {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    min-width: 30%;
+    height: 100%; }
+  .flex-demos-block .flex-wrap-demo .parent-nowrap {
+    display: -webkit-box;
+    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+    display: -webkit-flex;
+    /* 新版本语法: Chrome 21+ */
+    display: -moz-box;
+    /* 老版本语法: Firefox (buggy) */
+    display: -moz-flex;
+    display: -ms-flexbox;
+    /* 混合版本语法: IE 10 */
+    display: flex;
+    /* 新版本语法: Opera 12.1, Firefox 22+ */
+    -webkit-flex-wrap: nowrap;
+    -moz-flex-wrap: nowrap;
+    -ms-flex-wrap: none;
+    flex-wrap: nowrap;
+    overflow: scroll; }
+  .flex-demos-block .flex-wrap-demo .parent-wrap {
+    display: -webkit-box;
+    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+    display: -webkit-flex;
+    /* 新版本语法: Chrome 21+ */
+    display: -moz-box;
+    /* 老版本语法: Firefox (buggy) */
+    display: -moz-flex;
+    display: -ms-flexbox;
+    /* 混合版本语法: IE 10 */
+    display: flex;
+    /* 新版本语法: Opera 12.1, Firefox 22+ */
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    overflow: scroll;
+    margin-top: 5px; }
+  .flex-demos-block .flex-wrap-demo .parent-wrap-reverse {
+    display: -webkit-box;
+    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+    display: -webkit-flex;
+    /* 新版本语法: Chrome 21+ */
+    display: -moz-box;
+    /* 老版本语法: Firefox (buggy) */
+    display: -moz-flex;
+    display: -ms-flexbox;
+    /* 混合版本语法: IE 10 */
+    display: flex;
+    /* 新版本语法: Opera 12.1, Firefox 22+ */
+    -webkit-flex-wrap: wrap-reverse;
+    -moz-flex-wrap: wrap-reverse;
+    -ms-flex-wrap: wrap-reverse;
+    flex-wrap: wrap-reverse;
+    overflow: visible;
+    margin-top: 4rem; }
+  .flex-demos-block .flex-flow-demo .child {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    min-width: 30%;
+    height: 100%; }
+  .flex-demos-block .flex-flow-demo .parent-rowreverse-nowrap {
+    display: -webkit-box;
+    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+    display: -webkit-flex;
+    /* 新版本语法: Chrome 21+ */
+    display: -moz-box;
+    /* 老版本语法: Firefox (buggy) */
+    display: -moz-flex;
+    display: -ms-flexbox;
+    /* 混合版本语法: IE 10 */
+    display: flex;
+    /* 新版本语法: Opera 12.1, Firefox 22+ */
+    -webkit-flex-flow: row-reverse nowrap;
+    -moz-flex-flow: row-reverse nowrap;
+    -ms-flex-flow: row-reverse nowrap;
+    flex-flow: row-reverse nowrap;
+    overflow: scroll; }
+  .flex-demos-block .justify-content-demo .child {
+    width: 20%; }
+  .flex-demos-block .justify-content-demo [class^=parent]:nth-of-type(n+2) {
+    margin-top: 5px; }
+  .flex-demos-block .justify-content-demo .parent-flex-start {
+    display: -webkit-box;
+    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+    display: -webkit-flex;
+    /* 新版本语法: Chrome 21+ */
+    display: -moz-box;
+    /* 老版本语法: Firefox (buggy) */
+    display: -moz-flex;
+    display: -ms-flexbox;
+    /* 混合版本语法: IE 10 */
+    display: flex;
+    /* 新版本语法: Opera 12.1, Firefox 22+ */
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    -webkit-justify-content: flex-start;
+    -moz-justify-content: flex-start;
+    justify-content: flex-start; }
+  .flex-demos-block .justify-content-demo .parent-flex-end {
+    display: -webkit-box;
+    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+    display: -webkit-flex;
+    /* 新版本语法: Chrome 21+ */
+    display: -moz-box;
+    /* 老版本语法: Firefox (buggy) */
+    display: -moz-flex;
+    display: -ms-flexbox;
+    /* 混合版本语法: IE 10 */
+    display: flex;
+    /* 新版本语法: Opera 12.1, Firefox 22+ */
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    -webkit-justify-content: flex-end;
+    -moz-justify-content: flex-end;
+    justify-content: flex-end; }
+  .flex-demos-block .justify-content-demo .parent-center {
+    display: -webkit-box;
+    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+    display: -webkit-flex;
+    /* 新版本语法: Chrome 21+ */
+    display: -moz-box;
+    /* 老版本语法: Firefox (buggy) */
+    display: -moz-flex;
+    display: -ms-flexbox;
+    /* 混合版本语法: IE 10 */
+    display: flex;
+    /* 新版本语法: Opera 12.1, Firefox 22+ */
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center; }
+  .flex-demos-block .justify-content-demo .parent-space-between {
+    display: -webkit-box;
+    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+    display: -webkit-flex;
+    /* 新版本语法: Chrome 21+ */
+    display: -moz-box;
+    /* 老版本语法: Firefox (buggy) */
+    display: -moz-flex;
+    display: -ms-flexbox;
+    /* 混合版本语法: IE 10 */
+    display: flex;
+    /* 新版本语法: Opera 12.1, Firefox 22+ */
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    justify-content: space-between; }
+  .flex-demos-block .justify-content-demo .parent-space-around {
+    display: -webkit-box;
+    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+    display: -webkit-flex;
+    /* 新版本语法: Chrome 21+ */
+    display: -moz-box;
+    /* 老版本语法: Firefox (buggy) */
+    display: -moz-flex;
+    display: -ms-flexbox;
+    /* 混合版本语法: IE 10 */
+    display: flex;
+    /* 新版本语法: Opera 12.1, Firefox 22+ */
+    -webkit-box-pack: space-around;
+    -ms-flex-pack: space-around;
+    -webkit-justify-content: space-around;
+    -moz-justify-content: space-around;
+    justify-content: space-around; }
+  .flex-demos-block .align-items-demo .child {
+    width: 20%; }
+  .flex-demos-block .align-items-demo [class^=parent]:nth-of-type(n+2) {
+    margin-top: 5px; }
+  .flex-demos-block .align-items-demo .parent-flex-start {
+    display: -webkit-box;
+    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+    display: -webkit-flex;
+    /* 新版本语法: Chrome 21+ */
+    display: -moz-box;
+    /* 老版本语法: Firefox (buggy) */
+    display: -moz-flex;
+    display: -ms-flexbox;
+    /* 混合版本语法: IE 10 */
+    display: flex;
+    /* 新版本语法: Opera 12.1, Firefox 22+ */
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    -webkit-align-items: flex-start;
+    -moz-align-items: flex-start;
+    align-items: flex-start; }
+  .flex-demos-block .align-items-demo .parent-flex-end {
+    display: -webkit-box;
+    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+    display: -webkit-flex;
+    /* 新版本语法: Chrome 21+ */
+    display: -moz-box;
+    /* 老版本语法: Firefox (buggy) */
+    display: -moz-flex;
+    display: -ms-flexbox;
+    /* 混合版本语法: IE 10 */
+    display: flex;
+    /* 新版本语法: Opera 12.1, Firefox 22+ */
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    -webkit-align-items: flex-end;
+    -moz-align-items: flex-end;
+    align-items: flex-end; }
+  .flex-demos-block .align-items-demo .parent-center {
+    display: -webkit-box;
+    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+    display: -webkit-flex;
+    /* 新版本语法: Chrome 21+ */
+    display: -moz-box;
+    /* 老版本语法: Firefox (buggy) */
+    display: -moz-flex;
+    display: -ms-flexbox;
+    /* 混合版本语法: IE 10 */
+    display: flex;
+    /* 新版本语法: Opera 12.1, Firefox 22+ */
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center; }
+  .flex-demos-block .align-items-demo .parent-baseline {
+    display: -webkit-box;
+    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+    display: -webkit-flex;
+    /* 新版本语法: Chrome 21+ */
+    display: -moz-box;
+    /* 老版本语法: Firefox (buggy) */
+    display: -moz-flex;
+    display: -ms-flexbox;
+    /* 混合版本语法: IE 10 */
+    display: flex;
+    /* 新版本语法: Opera 12.1, Firefox 22+ */
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    -webkit-align-items: baseline;
+    -moz-align-items: baseline;
+    align-items: baseline; }
+  .flex-demos-block .align-items-demo .parent-stretch {
+    display: -webkit-box;
+    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+    display: -webkit-flex;
+    /* 新版本语法: Chrome 21+ */
+    display: -moz-box;
+    /* 老版本语法: Firefox (buggy) */
+    display: -moz-flex;
+    display: -ms-flexbox;
+    /* 混合版本语法: IE 10 */
+    display: flex;
+    /* 新版本语法: Opera 12.1, Firefox 22+ */
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    -webkit-align-items: stretch;
+    -moz-align-items: stretch;
+    align-items: stretch; }
+  .flex-demos-block .align-content-demo .child {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    min-width: 40%;
+    height: 1.5rem; }
+  .flex-demos-block .align-content-demo [class^=parent] {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-top: 5px;
+    height: 10rem; }
+  .flex-demos-block .align-content-demo .parent-flex-start {
+    display: -webkit-box;
+    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+    display: -webkit-flex;
+    /* 新版本语法: Chrome 21+ */
+    display: -moz-box;
+    /* 老版本语法: Firefox (buggy) */
+    display: -moz-flex;
+    display: -ms-flexbox;
+    /* 混合版本语法: IE 10 */
+    display: flex;
+    /* 新版本语法: Opera 12.1, Firefox 22+ */
+    -webkit-align-content: flex-start;
+    -moz-align-content: flex-start;
+    -ms-flex-line-pack: start;
+    align-content: flex-start; }
+  .flex-demos-block .align-content-demo .parent-flex-end {
+    display: -webkit-box;
+    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+    display: -webkit-flex;
+    /* 新版本语法: Chrome 21+ */
+    display: -moz-box;
+    /* 老版本语法: Firefox (buggy) */
+    display: -moz-flex;
+    display: -ms-flexbox;
+    /* 混合版本语法: IE 10 */
+    display: flex;
+    /* 新版本语法: Opera 12.1, Firefox 22+ */
+    -webkit-align-content: flex-end;
+    -moz-align-content: flex-end;
+    -ms-flex-line-pack: end;
+    align-content: flex-end; }
+  .flex-demos-block .align-content-demo .parent-center {
+    display: -webkit-box;
+    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+    display: -webkit-flex;
+    /* 新版本语法: Chrome 21+ */
+    display: -moz-box;
+    /* 老版本语法: Firefox (buggy) */
+    display: -moz-flex;
+    display: -ms-flexbox;
+    /* 混合版本语法: IE 10 */
+    display: flex;
+    /* 新版本语法: Opera 12.1, Firefox 22+ */
+    -webkit-align-content: center;
+    -moz-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center; }
+  .flex-demos-block .align-content-demo .parent-space-between {
+    display: -webkit-box;
+    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+    display: -webkit-flex;
+    /* 新版本语法: Chrome 21+ */
+    display: -moz-box;
+    /* 老版本语法: Firefox (buggy) */
+    display: -moz-flex;
+    display: -ms-flexbox;
+    /* 混合版本语法: IE 10 */
+    display: flex;
+    /* 新版本语法: Opera 12.1, Firefox 22+ */
+    -webkit-align-content: space-between;
+    -moz-align-content: space-between;
+    -ms-flex-line-pack: space-between;
+    align-content: space-between; }
+  .flex-demos-block .align-content-demo .parent-space-around {
+    display: -webkit-box;
+    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+    display: -webkit-flex;
+    /* 新版本语法: Chrome 21+ */
+    display: -moz-box;
+    /* 老版本语法: Firefox (buggy) */
+    display: -moz-flex;
+    display: -ms-flexbox;
+    /* 混合版本语法: IE 10 */
+    display: flex;
+    /* 新版本语法: Opera 12.1, Firefox 22+ */
+    -webkit-align-content: space-around;
+    -moz-align-content: space-around;
+    -ms-flex-line-pack: space-around;
+    align-content: space-around; }
+  .flex-demos-block .align-content-demo .parent-stretch {
+    display: -webkit-box;
+    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+    display: -webkit-flex;
+    /* 新版本语法: Chrome 21+ */
+    display: -moz-box;
+    /* 老版本语法: Firefox (buggy) */
+    display: -moz-flex;
+    display: -ms-flexbox;
+    /* 混合版本语法: IE 10 */
+    display: flex;
+    /* 新版本语法: Opera 12.1, Firefox 22+ */
+    -webkit-align-content: stretch;
+    -moz-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch; }
+
+/**
+ *
+ * 子元素属性
+ *
+ */
+.flex-child-demos-block {
+  /**
+   * order: <integer> default: 0
+   */
+  /**
+   * flex-grow: <number>;  default 0
+   */
+  /**
+   * flex-shrink: <number>; default 1
+   */
+  /**
+   * flex-basis: <length> | auto;  default auto 
+   */
+  /**
+   * flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
+   */
+  /**
+   * align-self: auto | flex-start | flex-end | center | baseline | stretch
+   */ }
+  .flex-child-demos-block [class*=parent] {
+    height: 3rem;
+    box-sizing: content-box;
+    border: 1px solid red; }
+  .flex-child-demos-block .child {
+    background-color: rgba(0, 128, 0, 0.21);
+    margin: 0 2px; }
+  .flex-child-demos-block > div.tip-line:nth-of-type(n+2) {
+    margin-top: .6rem; }
+  .flex-child-demos-block .parent-order {
+    display: -webkit-box;
+    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+    display: -webkit-flex;
+    /* 新版本语法: Chrome 21+ */
+    display: -moz-box;
+    /* 老版本语法: Firefox (buggy) */
+    display: -moz-flex;
+    display: -ms-flexbox;
+    /* 混合版本语法: IE 10 */
+    display: flex;
+    /* 新版本语法: Opera 12.1, Firefox 22+ */ }
+    .flex-child-demos-block .parent-order .child {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      -moz-box-flex: 1;
+      -moz-flex: 1;
+      -ms-flex: 1;
+      flex: 1; }
+    .flex-child-demos-block .parent-order .c1 {
+      -webkit-order: 2;
+      -ms-flex-order: 2;
+      order: 2;
+      -webkit-box-ordinal-group: 2; }
+    .flex-child-demos-block .parent-order .c2 {
+      -webkit-order: -1;
+      -ms-flex-order: -1;
+      order: -1;
+      -webkit-box-ordinal-group: -1; }
+    .flex-child-demos-block .parent-order .c3 {
+      -webkit-order: 0;
+      -ms-flex-order: 0;
+      order: 0;
+      -webkit-box-ordinal-group: 0; }
+    .flex-child-demos-block .parent-order .c4 {
+      -webkit-order: -2;
+      -ms-flex-order: -2;
+      order: -2;
+      -webkit-box-ordinal-group: -2; }
+    .flex-child-demos-block .parent-order .c5 {
+      -webkit-order: 1;
+      -ms-flex-order: 1;
+      order: 1;
+      -webkit-box-ordinal-group: 1; }
+  .flex-child-demos-block .parent-flex-grow {
+    display: -webkit-box;
+    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+    display: -webkit-flex;
+    /* 新版本语法: Chrome 21+ */
+    display: -moz-box;
+    /* 老版本语法: Firefox (buggy) */
+    display: -moz-flex;
+    display: -ms-flexbox;
+    /* 混合版本语法: IE 10 */
+    display: flex;
+    /* 新版本语法: Opera 12.1, Firefox 22+ */ }
+    .flex-child-demos-block .parent-flex-grow .c1, .flex-child-demos-block .parent-flex-grow .c4 {
+      -ms-flex-grow: 0;
+      /* IE10 */
+      -webkit-box-flex: 0;
+      -moz-flex-grow: 0;
+      /* Chrome,FireFox旧版本支持 */
+      -webkit-flex-grow: 0;
+      flex-grow: 0; }
+    .flex-child-demos-block .parent-flex-grow .c2 {
+      -ms-flex-grow: 1;
+      /* IE10 */
+      -webkit-box-flex: 1;
+      -moz-flex-grow: 1;
+      /* Chrome,FireFox旧版本支持 */
+      -webkit-flex-grow: 1;
+      flex-grow: 1; }
+    .flex-child-demos-block .parent-flex-grow .c3 {
+      -ms-flex-grow: 2;
+      /* IE10 */
+      -webkit-box-flex: 2;
+      -moz-flex-grow: 2;
+      /* Chrome,FireFox旧版本支持 */
+      -webkit-flex-grow: 2;
+      flex-grow: 2; }
+  .flex-child-demos-block .parent-flex-shrink {
+    display: -webkit-box;
+    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+    display: -webkit-flex;
+    /* 新版本语法: Chrome 21+ */
+    display: -moz-box;
+    /* 老版本语法: Firefox (buggy) */
+    display: -moz-flex;
+    display: -ms-flexbox;
+    /* 混合版本语法: IE 10 */
+    display: flex;
+    /* 新版本语法: Opera 12.1, Firefox 22+ */ }
+    .flex-child-demos-block .parent-flex-shrink .child {
+      width: 30%; }
+    .flex-child-demos-block .parent-flex-shrink .c1, .flex-child-demos-block .parent-flex-shrink .c4 {
+      -ms-flex-shrink: 0;
+      /* IE10 */
+      -webkit-box-flex: 0;
+      -moz-flex-shrink: 0;
+      -webkit-flex-shrink: 0;
+      flex-shrink: 1; }
+    .flex-child-demos-block .parent-flex-shrink .c2 {
+      -ms-flex-shrink: 1;
+      /* IE10 */
+      -webkit-box-flex: 1;
+      -moz-flex-shrink: 1;
+      -webkit-flex-shrink: 1;
+      flex-shrink: 1; }
+    .flex-child-demos-block .parent-flex-shrink .c3 {
+      -ms-flex-shrink: 2;
+      /* IE10 */
+      -webkit-box-flex: 2;
+      -moz-flex-shrink: 2;
+      -webkit-flex-shrink: 2;
+      flex-shrink: 1; }
+  .flex-child-demos-block .flex-basis-demo {
+    display: -webkit-box;
+    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+    display: -webkit-flex;
+    /* 新版本语法: Chrome 21+ */
+    display: -moz-box;
+    /* 老版本语法: Firefox (buggy) */
+    display: -moz-flex;
+    display: -ms-flexbox;
+    /* 混合版本语法: IE 10 */
+    display: flex;
+    /* 新版本语法: Opera 12.1, Firefox 22+ */ }
+    .flex-child-demos-block .flex-basis-demo .c1, .flex-child-demos-block .flex-basis-demo .c4 {
+      flex-basis: 20rem;
+      -webkit-flex-basis: 20rem; }
+    .flex-child-demos-block .flex-basis-demo .c2 {
+      flex-basis: auto;
+      -webkit-flex-basis: auto; }
+    .flex-child-demos-block .flex-basis-demo .c3 {
+      flex-basis: 10rem;
+      -webkit-flex-basis: 10rem; }
+  .flex-child-demos-block .parent-flex {
+    display: -webkit-box;
+    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+    display: -webkit-flex;
+    /* 新版本语法: Chrome 21+ */
+    display: -moz-box;
+    /* 老版本语法: Firefox (buggy) */
+    display: -moz-flex;
+    display: -ms-flexbox;
+    /* 混合版本语法: IE 10 */
+    display: flex;
+    /* 新版本语法: Opera 12.1, Firefox 22+ */ }
+    .flex-child-demos-block .parent-flex .c1 {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      -moz-box-flex: 1;
+      -moz-flex: 1;
+      -ms-flex: 1;
+      flex: 1; }
+    .flex-child-demos-block .parent-flex .c2 {
+      -webkit-box-flex: 1 3rem;
+      -webkit-flex: 1 3rem;
+      -moz-box-flex: 1 3rem;
+      -moz-flex: 1 3rem;
+      -ms-flex: 1 3rem;
+      flex: 1 3rem; }
+    .flex-child-demos-block .parent-flex .c3 {
+      -webkit-box-flex: 2rem;
+      -webkit-flex: 2rem;
+      -moz-box-flex: 2rem;
+      -moz-flex: 2rem;
+      -ms-flex: 2rem;
+      flex: 2rem; }
+    .flex-child-demos-block .parent-flex .c4 {
+      -webkit-box-flex: 2 2;
+      -webkit-flex: 2 2;
+      -moz-box-flex: 2 2;
+      -moz-flex: 2 2;
+      -ms-flex: 2 2;
+      flex: 2 2; }
+    .flex-child-demos-block .parent-flex .c6 {
+      -webkit-box-flex: 2 2 10%;
+      -webkit-flex: 2 2 10%;
+      -moz-box-flex: 2 2 10%;
+      -moz-flex: 2 2 10%;
+      -ms-flex: 2 2 10%;
+      flex: 2 2 10%; }
+    .flex-child-demos-block .parent-flex .c5 {
+      -webkit-box-flex: none;
+      -webkit-flex: none;
+      -moz-box-flex: none;
+      -moz-flex: none;
+      -ms-flex: none;
+      flex: none; }
+  .flex-child-demos-block .parent-flex-need-shrink {
+    display: -webkit-box;
+    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+    display: -webkit-flex;
+    /* 新版本语法: Chrome 21+ */
+    display: -moz-box;
+    /* 老版本语法: Firefox (buggy) */
+    display: -moz-flex;
+    display: -ms-flexbox;
+    /* 混合版本语法: IE 10 */
+    display: flex;
+    /* 新版本语法: Opera 12.1, Firefox 22+ */ }
+    .flex-child-demos-block .parent-flex-need-shrink .child {
+      width: 3rem; }
+    .flex-child-demos-block .parent-flex-need-shrink .c1 {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      -moz-box-flex: 1;
+      -moz-flex: 1;
+      -ms-flex: 1;
+      flex: 1; }
+    .flex-child-demos-block .parent-flex-need-shrink .c2 {
+      -webkit-box-flex: 1 3rem;
+      -webkit-flex: 1 3rem;
+      -moz-box-flex: 1 3rem;
+      -moz-flex: 1 3rem;
+      -ms-flex: 1 3rem;
+      flex: 1 3rem; }
+    .flex-child-demos-block .parent-flex-need-shrink .c3 {
+      -webkit-box-flex: 2rem;
+      -webkit-flex: 2rem;
+      -moz-box-flex: 2rem;
+      -moz-flex: 2rem;
+      -ms-flex: 2rem;
+      flex: 2rem; }
+    .flex-child-demos-block .parent-flex-need-shrink .c4 {
+      -webkit-box-flex: 2 2;
+      -webkit-flex: 2 2;
+      -moz-box-flex: 2 2;
+      -moz-flex: 2 2;
+      -ms-flex: 2 2;
+      flex: 2 2; }
+    .flex-child-demos-block .parent-flex-need-shrink .c6 {
+      -webkit-box-flex: 2 2 10%;
+      -webkit-flex: 2 2 10%;
+      -moz-box-flex: 2 2 10%;
+      -moz-flex: 2 2 10%;
+      -ms-flex: 2 2 10%;
+      flex: 2 2 10%; }
+    .flex-child-demos-block .parent-flex-need-shrink .c5 {
+      -webkit-box-flex: none;
+      -webkit-flex: none;
+      -moz-box-flex: none;
+      -moz-flex: none;
+      -ms-flex: none;
+      flex: none; }
+  .flex-child-demos-block .parent-flex-need-grow {
+    display: -webkit-box;
+    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+    display: -webkit-flex;
+    /* 新版本语法: Chrome 21+ */
+    display: -moz-box;
+    /* 老版本语法: Firefox (buggy) */
+    display: -moz-flex;
+    display: -ms-flexbox;
+    /* 混合版本语法: IE 10 */
+    display: flex;
+    /* 新版本语法: Opera 12.1, Firefox 22+ */ }
+    .flex-child-demos-block .parent-flex-need-grow .c1 {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      -moz-box-flex: 1;
+      -moz-flex: 1;
+      -ms-flex: 1;
+      flex: 1; }
+    .flex-child-demos-block .parent-flex-need-grow .c2 {
+      -webkit-box-flex: 1 3rem;
+      -webkit-flex: 1 3rem;
+      -moz-box-flex: 1 3rem;
+      -moz-flex: 1 3rem;
+      -ms-flex: 1 3rem;
+      flex: 1 3rem; }
+    .flex-child-demos-block .parent-flex-need-grow .c3 {
+      -webkit-box-flex: 2rem;
+      -webkit-flex: 2rem;
+      -moz-box-flex: 2rem;
+      -moz-flex: 2rem;
+      -ms-flex: 2rem;
+      flex: 2rem; }
+    .flex-child-demos-block .parent-flex-need-grow .c4 {
+      -webkit-box-flex: 2 2;
+      -webkit-flex: 2 2;
+      -moz-box-flex: 2 2;
+      -moz-flex: 2 2;
+      -ms-flex: 2 2;
+      flex: 2 2; }
+    .flex-child-demos-block .parent-flex-need-grow .c6 {
+      -webkit-box-flex: 2 2 10%;
+      -webkit-flex: 2 2 10%;
+      -moz-box-flex: 2 2 10%;
+      -moz-flex: 2 2 10%;
+      -ms-flex: 2 2 10%;
+      flex: 2 2 10%; }
+    .flex-child-demos-block .parent-flex-need-grow .c5 {
+      -webkit-box-flex: none;
+      -webkit-flex: none;
+      -moz-box-flex: none;
+      -moz-flex: none;
+      -ms-flex: none;
+      flex: none; }
+  .flex-child-demos-block .parent-align-self {
+    display: -webkit-box;
+    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+    display: -webkit-flex;
+    /* 新版本语法: Chrome 21+ */
+    display: -moz-box;
+    /* 老版本语法: Firefox (buggy) */
+    display: -moz-flex;
+    display: -ms-flexbox;
+    /* 混合版本语法: IE 10 */
+    display: flex;
+    /* 新版本语法: Opera 12.1, Firefox 22+ */
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    height: 5rem; }
+    .flex-child-demos-block .parent-align-self .child {
+      min-height: 3rem;
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      -moz-box-flex: 1;
+      -moz-flex: 1;
+      -ms-flex: 1;
+      flex: 1; }
+    .flex-child-demos-block .parent-align-self .c1 {
+      -webkit-align-self: auto;
+      -moz-align-self: auto;
+      -ms-flex-item-align: auto;
+      align-self: auto; }
+    .flex-child-demos-block .parent-align-self .c2 {
+      -webkit-align-self: flex-start;
+      -moz-align-self: flex-start;
+      -ms-flex-item-align: start;
+      align-self: flex-start; }
+    .flex-child-demos-block .parent-align-self .c3 {
+      -webkit-align-self: flex-end;
+      -moz-align-self: flex-end;
+      -ms-flex-item-align: end;
+      align-self: flex-end; }
+    .flex-child-demos-block .parent-align-self .c4 {
+      -webkit-align-self: center;
+      -moz-align-self: center;
+      -ms-flex-item-align: center;
+      align-self: center; }
+    .flex-child-demos-block .parent-align-self .c5 {
+      -webkit-align-self: baseline;
+      -moz-align-self: baseline;
+      -ms-flex-item-align: baseline;
+      align-self: baseline; }
+    .flex-child-demos-block .parent-align-self .c6 {
+      -webkit-align-self: stretch;
+      -moz-align-self: stretch;
+      -ms-flex-item-align: stretch;
+      align-self: stretch; }
+
+/**
+ *
+ * Flex 综合
+ *
+ */
+.flex-allin-demos-block [class*=parent] {
+  height: 3rem;
+  box-sizing: content-box;
+  border: 1px solid red; }
+.flex-allin-demos-block .child {
+  background-color: rgba(0, 128, 0, 0.21);
+  margin: 0 2px; }
+.flex-allin-demos-block > div.tip-line:nth-of-type(n+2) {
+  margin-top: .6rem; }
+.flex-allin-demos-block .flex-parent {
+  display: -webkit-box;
+  /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+  display: -webkit-flex;
+  /* 新版本语法: Chrome 21+ */
+  display: -moz-box;
+  /* 老版本语法: Firefox (buggy) */
+  display: -moz-flex;
+  display: -ms-flexbox;
+  /* 混合版本语法: IE 10 */
+  display: flex;
+  /* 新版本语法: Opera 12.1, Firefox 22+ */
+  border: 1px solid red;
+  height: 3rem;
+  box-sizing: content-box;
+  margin-bottom: 5px !important; }
+  .flex-allin-demos-block .flex-parent .child {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    background-color: rgba(0, 128, 0, 0.21);
+    margin: 0 2px; }
+.flex-allin-demos-block .flex-parent-span {
+  display: -webkit-box;
+  /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+  display: -webkit-flex;
+  /* 新版本语法: Chrome 21+ */
+  display: -moz-box;
+  /* 老版本语法: Firefox (buggy) */
+  display: -moz-flex;
+  display: -ms-flexbox;
+  /* 混合版本语法: IE 10 */
+  display: flex;
+  /* 新版本语法: Opera 12.1, Firefox 22+ */
+  border: 1px solid red;
+  height: 3rem;
+  box-sizing: content-box; }
+  .flex-allin-demos-block .flex-parent-span .child {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1; }
+
+/**
+ *
  *  xui-checkbox-amination
  *
  */
@@ -512,3 +1479,5 @@ body {
   border-bottom: 10px solid transparent;
   border-right: 10px solid transparent;
   border-right-color: blue; }
+
+/*# sourceMappingURL=test.css.map */

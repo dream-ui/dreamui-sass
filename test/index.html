@@ -12,7 +12,6 @@
   <div class="demos">
 
     <span id="border-and-box-block" class="tip-line large first"> border-and-box </span>
-
     <div class="type-block border-and-box-block ">
       <span class="tip-line"> thin-border 系列 </span>
       <div class="demo-thin-border">
@@ -54,7 +53,6 @@
         <div class="border-radius-all">all border</div>
       </div>
     </div>
-    
 
 
     <span class="tip-line large" id="text-demos-block"> Text 相关</span>
@@ -78,8 +76,6 @@
     </div>
 
 
-
-
     <span id="ui-demos-block" class="tip-line large"> UI 组件 </span>
     <div class="type-block ui-demos-block">
       <span class="tip-line"> xui-checkbox-amination </span>
@@ -87,6 +83,278 @@
 
       <span class="tip-line"> arrow-triangle </span>
       <div class="arrow-triangle"></div>
+    </div>
+
+
+    <span id="flex-demos-block" class="tip-line large"> Flex 布局: 父属性 </span>
+    <div class="type-block flex-demos-block">
+
+      <div class="tip-line">flex-direction: row | row-reverse | column | column-reverse</div>
+      <div class="flex-direction-demo">
+        <div class="parent-row">
+          <div class="child center 1">c1</div>
+          <div class="child center 2">c2</div>
+          <div class="child center 3">c3</div>
+          <div class="child center 4">c4</div>
+          <div class="child center 5">c5</div>
+        </div>
+        <div class="parent-row-reverse">
+          <div class="child center 1">c1</div>
+          <div class="child center 2">c2</div>
+          <div class="child center 3">c3</div>
+          <div class="child center 4">c4</div>
+          <div class="child center 5">c5</div>
+        </div>
+        <div class="parent-column">
+          <div class="child center 1">c1</div>
+          <div class="child center 2">c2</div>
+          <div class="child center 3">c3</div>
+          <div class="child center 4">c4</div>
+          <div class="child center 5">c5</div>
+        </div>
+        <div class="parent-column-reverse">
+          <div class="child center 1">c1</div>
+          <div class="child center 2">c2</div>
+          <div class="child center 3">c3</div>
+          <div class="child center 4">c4</div>
+          <div class="child center 5">c5</div>
+        </div>
+      </div>
+
+      <div class="tip-line">flex-wrap: nowrap | wrap | wrap-reverse</div>
+      <div class="flex-wrap-demo">
+        <div class="parent-nowrap">
+          <div class="child center">c1</div>
+          <div class="child center">c2</div>
+          <div class="child center">c3</div>
+          <div class="child center">c4</div>
+          <div class="child center">c5</div>
+        </div>
+        <div class="parent-wrap">
+          <div class="child center">c1</div>
+          <div class="child center">c2</div>
+          <div class="child center">c3</div>
+          <div class="child center">c4</div>
+          <div class="child center">c5</div>
+        </div>
+        <div class="parent-wrap-reverse">
+          <div class="child center">c1</div>
+          <div class="child center">c2</div>
+          <div class="child center">c3</div>
+          <div class="child center">c4</div>
+          <div class="child center">c5</div>
+        </div>
+      </div>
+
+      <div class="tip-line">flex-flow: row-reverse nowrap </div>
+      <div class="flex-flow-demo">
+        <div class="parent-rowreverse-nowrap">
+          <div class="child center">v1</div>
+          <div class="child center">v2</div>
+          <div class="child center">v3</div>
+          <div class="child center">v4</div>
+          <div class="child center">v5</div>
+        </div>
+      </div>
+
+      <div class="tip-line">justify-content: flex-start | flex-end | center | space-between | space-around</div>
+      <div class="justify-content-demo">
+        <div class="parent-flex-start">
+          <div class="child center">c1</div>
+          <div class="child center">c2</div>
+        </div>
+        <div class="parent-flex-end">
+          <div class="child center">c1</div>
+          <div class="child center">c2</div>
+        </div>
+        <div class="parent-center">
+          <div class="child center">c1</div>
+          <div class="child center">c2</div>
+        </div>
+        <div class="parent-space-between">
+          <div class="child center">c1</div>
+          <div class="child center">c2</div>
+        </div>
+        <div class="parent-space-around">
+          <div class="child center">c1</div>
+          <div class="child center">c2</div>
+        </div>
+      </div>
+
+      <div class="tip-line">align-items: flex-start | flex-end | center | baseline | stretch</div>
+      <div class="align-items-demo">
+        <div class="parent-flex-start">
+          <div class="child center c1">c1</div>
+          <div class="child center c2">c2</div>
+          <div class="child center c3">c3</div>
+          <div class="child center c4">c4</div>
+        </div>
+        <div class="parent-flex-end">
+          <div class="child center c1">c1</div>
+          <div class="child center c2">c2</div>
+          <div class="child center c3">c3</div>
+          <div class="child center c4">c4</div>
+        </div>
+        <div class="parent-center">
+          <div class="child center c1">c1</div>
+          <div class="child center c2">c2</div>
+          <div class="child center c3">c3</div>
+          <div class="child center c4">c4</div>
+        </div>
+        <div class="parent-baseline">
+          <div class="child center c1">c1</div>
+          <div class="child center c2">c2</div>
+          <div class="child center c3">c3</div>
+          <div class="child center c4">c4</div>
+        </div>
+        <div class="parent-stretch">
+          <div class="child center c1">c1</div>
+          <div class="child center c2">c2</div>
+          <div class="child center c3">c3</div>
+          <div class="child center c4">c4</div>
+        </div>
+      </div>
+
+      <div class="tip-line">align-content: flex-start | flex-end | center | space-between | space-around | stretch</div>
+      <div class="align-content-demo">
+        <div class="parent-flex-start">
+          <div class="child center c1">c1</div>
+          <div class="child center c2">c2</div>
+          <div class="child center c3">c3</div>
+          <div class="child center c4">c4</div>
+          <div class="child center c5">c5</div>
+        </div>
+        <div class="parent-flex-end">
+          <div class="child center c1">c1</div>
+          <div class="child center c2">c2</div>
+          <div class="child center c3">c3</div>
+          <div class="child center c4">c4</div>
+          <div class="child center c5">c5</div>
+        </div>
+        <div class="parent-center">
+          <div class="child center c1">c1</div>
+          <div class="child center c2">c2</div>
+          <div class="child center c3">c3</div>
+          <div class="child center c4">c4</div>
+          <div class="child center c5">c5</div>
+        </div>
+        <div class="parent-space-between">
+          <div class="child center c1">c1</div>
+          <div class="child center c2">c2</div>
+          <div class="child center c3">c3</div>
+          <div class="child center c4">c4</div>
+          <div class="child center c5">c5</div>
+        </div>
+        <div class="parent-space-around">
+          <div class="child center c1">c1</div>
+          <div class="child center c2">c2</div>
+          <div class="child center c3">c3</div>
+          <div class="child center c4">c4</div>
+          <div class="child center c5">c5</div>
+        </div>
+        <div class="parent-stretch">
+          <div class="child center c1">c1</div>
+          <div class="child center c2">c2</div>
+          <div class="child center c3">c3</div>
+          <div class="child center c4">c4</div>
+          <div class="child center c5">c5</div>
+        </div>
+      </div>
+    </div>
+
+
+    <span id="flex-child-demos-block" class="tip-line large"> Flex 布局: 子属性 </span>
+    <div class="type-block flex-child-demos-block">
+      <div class="tip-line">order</div>
+      <div class="parent-order">
+        <div class="child center c1">2</div>
+        <div class="child center c2">-1</div>
+        <div class="child center c3">0</div>
+        <div class="child center c4">-2</div>
+        <div class="child center c5">1</div>
+      </div>
+
+      <div class="tip-line">flex-grow</div>
+      <div class="parent-flex-grow">
+        <div class="child center c1">0</div>
+        <div class="child center c2">1</div>
+        <div class="child center c3">2</div>
+        <div class="child center c4">0</div>
+      </div>
+
+      <div class="tip-line">flex-shrink</div>
+      <div class="parent-flex-shrink">
+        <div class="child center c1">0</div>
+        <div class="child center c2">1</div>
+        <div class="child center c3">2</div>
+        <div class="child center c4">0</div>
+      </div>
+
+      <div class="tip-line">flex-basis</div>
+      <div class="flex-basis-demo">
+        <div class="child center c1">c1</div>
+        <div class="child center c2">c2</div>
+        <div class="child center c3">c3</div>
+        <div class="child center c4">c4</div>
+      </div>
+      <div class="tip-line">flex</div>
+      <div class="parent-flex">
+        <div class="child center c1">1</div>
+        <div class="child center c2">1 3rem</div>
+        <div class="child center c3">2rem</div>
+        <div class="child center c4">2 2</div>
+        <div class="child center c5">none</div>
+        <div class="child center c6">2 2 10%</div>
+      </div>
+
+      <div class="tip-line">flex(need grow)</div>
+      <div class="parent-flex-need-grow">
+        <div class="child center c1">1</div>
+        <div class="child center c2">1 3rem</div>
+        <div class="child center c3">2rem</div>
+        <div class="child center c4">2 2</div>
+        <div class="child center c5">none</div>
+        <div class="child center c6">2 2 10%</div>
+      </div>
+
+      <div class="tip-line">flex(need shrink)</div>
+      <div class="parent-flex-need-shrink">
+        <div class="child center c1">1</div>
+        <div class="child center c2">1 3rem</div>
+        <div class="child center c3">2rem</div>
+        <div class="child center c4">2 2</div>
+        <div class="child center c5">none</div>
+        <div class="child center c6">2 2 10%</div>
+      </div>
+
+      <div class="tip-line">align-self: auto | flex-start | flex-end | center | baseline | stretch</div>
+      <div class="parent-align-self">
+        <div class="child center c1">c1</div>
+        <div class="child center c2">c2</div>
+        <div class="child center c3">c3</div>
+        <div class="child center c4">c4</div>
+        <div class="child center c5">c5</div>
+        <div class="child center c6">c6</div>
+      </div>
+      
+    </div>
+
+
+    <span id="flex-allin-demos-block" class="tip-line large">Flex 布局: 综合</span>
+    <div class="type-block flex-allin-demos-block">
+      <div class="tip-line">display-flex、flex、%flex-center</div>
+      <div class="flex-parent">
+        <div class="child center 1">1div</div>
+        <div class="child center 2">2div</div>
+        <div class="child center 3">3div</div>
+        <div class="child center 4">4div</div>
+      </div>
+      <div class="flex-parent-span">
+        <span class="child center 1">1 span</span>
+        <span class="child center 2">2 span</span>
+        <span class="child center 3">3 span</span>
+        <span class="child center 4">4 span</span>
+      </div>
     </div>
 
   </div>

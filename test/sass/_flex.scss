@@ -1,0 +1,457 @@
+/**
+ *
+ * 父元素属性
+ *
+ */
+.flex-demos-block {
+  [class*=parent] {
+    height: 3rem;
+    box-sizing: content-box;
+    border: 1px solid red;
+  }
+  .child {
+    background-color: rgba(0, 128, 0, 0.21);
+    margin: 0 2px;
+    &.center {
+      @extend %flex-center;
+    }
+  }
+  &>div.tip-line:nth-of-type(n+2) {
+    margin-top: .6rem;
+  }
+
+  /**
+   * flex-direction 相关: row | row-reverse | column | column-reverse;
+   */
+  .flex-direction-demo {
+    [class*=parent]:nth-of-type(n+2) {
+      margin-top: .2rem;
+    }
+    .child {
+      @include flex(1);
+    }
+    .parent-row {
+      @include display-flex;
+      @include flex-direction(row);
+    }
+    .parent-row-reverse {
+      @include display-flex;
+      @include flex-direction(row-reverse);
+    }
+    // TODO: 竖直位置不对
+    .parent-column {
+      @include display-inline-flex;
+      @include flex-direction(column);
+      width: 30%;
+      height: 10rem;
+    }
+    .parent-column-reverse {
+      @include display-inline-flex;
+      @include flex-direction(column-reverse);
+      width: 30%;
+      height: 10rem;
+    }
+  }
+
+  /**
+   * flex-wrap 相关: nowrap | wrap | wrap-reverse
+   */
+  .flex-wrap-demo {
+    .child {
+      @include flex(1);
+      min-width: 30%;
+      height: 100%;
+    }
+    .parent-nowrap {
+      @include display-flex;
+      @include flex-wrap(nowrap);
+      overflow: scroll;
+    }
+    .parent-wrap {
+      @include display-flex;
+      @include flex-wrap(wrap);
+      overflow: scroll;
+      margin-top: 5px;
+    }
+    .parent-wrap-reverse {
+      @include display-flex;
+      @include flex-wrap(wrap-reverse);
+      overflow: visible;
+      margin-top: 4rem;
+    }
+  }
+
+  /**
+   * flex-flow: <flex-direction> || <flex-wrap>
+   */
+  .flex-flow-demo {
+    .child {
+      @include flex(1);
+      min-width: 30%;
+      height: 100%;
+    }
+    .parent-rowreverse-nowrap {
+      @include display-flex;
+      @include flex-flow(row-reverse nowrap);
+      overflow: scroll;
+    }
+  }
+
+  /**
+   * TODO: justify-content: flex-start | flex-end | center | space-between | space-around
+   */
+  .justify-content-demo {
+    .child {
+      width: 20%;
+    }
+    [class^=parent]:nth-of-type(n+2) {
+      margin-top: 5px;
+    }
+    .parent-flex-start {
+      @include display-flex;
+      @include justify-content(flex-start);
+    }
+    .parent-flex-end {
+      @include display-flex;
+      @include justify-content(flex-end);
+    }
+    .parent-center {
+      @include display-flex;
+      @include justify-content(center);
+    }
+    .parent-space-between {
+      @include display-flex;
+      @include justify-content(space-between);
+    }
+    .parent-space-around {
+      @include display-flex;
+      @include justify-content(space-around);
+    }
+  }
+
+  /**
+   * TODO: align-items: flex-start | flex-end | center | baseline | stretch
+   */
+  .align-items-demo {
+    .child {
+      width: 20%;
+    }
+    [class^=parent]:nth-of-type(n+2) {
+      margin-top: 5px;
+    }
+    .parent-flex-start {
+      @include display-flex;
+      @include align-items(flex-start);
+    }
+    .parent-flex-end {
+      @include display-flex;
+      @include align-items(flex-end);
+    }
+    .parent-center {
+      @include display-flex;
+      @include align-items(center);
+    }
+    .parent-baseline {
+      @include display-flex;
+      @include align-items(baseline);
+    }
+    .parent-stretch {
+      @include display-flex;
+      @include align-items(stretch);
+    }
+  }
+
+  /**
+   * align-content: flex-start | flex-end | center | space-between | space-around | stretch
+   */
+  .align-content-demo {
+    .child {
+      @include flex(1);
+      min-width: 40%;
+      height: 1.5rem;
+    }
+    [class^=parent] {
+      @include flex-direction(row);
+      @include flex-wrap(wrap);
+      margin-top: 5px;
+      height: 10rem;
+    }
+    .parent-flex-start {
+      @include display-flex;
+      @include align-content(flex-start);
+    }
+    .parent-flex-end {
+      @include display-flex;
+      @include align-content(flex-end);
+    }
+    .parent-center {
+      @include display-flex;
+      @include align-content(center);
+    }
+    .parent-space-between {
+      @include display-flex;
+      @include align-content(space-between);
+    }
+    .parent-space-around {
+      @include display-flex;
+      @include align-content(space-around);
+    }
+    .parent-stretch {
+      @include display-flex;
+      @include align-content(stretch);
+    }
+  }
+
+}
+
+
+/**
+ *
+ * 子元素属性
+ *
+ */
+.flex-child-demos-block {
+  [class*=parent] {
+    height: 3rem;
+    box-sizing: content-box;
+    border: 1px solid red;
+  }
+  .child {
+    background-color: rgba(0, 128, 0, 0.21);
+    margin: 0 2px;
+    &.center {
+      @extend %flex-center;
+    }
+  }
+  &>div.tip-line:nth-of-type(n+2) {
+    margin-top: .6rem;
+  }
+
+  /**
+   * order: <integer> default: 0
+   */
+  .parent-order {
+    .child {
+      @include flex(1);
+    }
+    @include display-flex;
+    .c1 {
+      @include flex-order(2)
+    }
+    .c2 {
+      @include flex-order(-1)
+    }
+    .c3 {
+      @include flex-order(0)
+    }
+    .c4 {
+      @include flex-order(-2)
+    }
+    .c5 {
+      @include flex-order(1)
+    }
+  }
+  /**
+   * flex-grow: <number>;  default 0
+   */
+  .parent-flex-grow {
+    .child {
+      // width: 30%;
+    }
+    @include display-flex;
+    .c1, .c4 {
+      @include flex-grow(0)
+    }
+    .c2 {
+      @include flex-grow(1)
+    }
+    .c3 {
+      @include flex-grow(2)
+    }
+  }
+
+  /**
+   * flex-shrink: <number>; default 1
+   */
+  .parent-flex-shrink {
+    .child {
+      width: 30%;
+    }
+    @include display-flex;
+    .c1, .c4 {
+      @include flex-shrink(0)
+    }
+    .c2 {
+      @include flex-shrink(1)
+    }
+    .c3 {
+      @include flex-shrink(2)
+    }
+  }
+
+  /**
+   * flex-basis: <length> | auto;  default auto 
+   */
+  .flex-basis-demo {
+    .child {
+    }
+    @include display-flex;
+    .c1, .c4 {
+      @include flex-basis(20rem)
+    }
+    .c2 {
+      @include flex-basis(auto)
+    }
+    .c3 {
+      @include flex-basis(10rem)
+    }
+  }
+
+  /**
+   * flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
+   */
+  .parent-flex {
+    @include display-flex;
+    .c1 {
+      @include flex(1) // flex-grow
+    }
+    .c2 {
+      @include flex(1 3rem); // flex-grow flex-basis
+    }
+    .c3 {
+      @include flex(2rem); // flex-basis
+    }
+    .c4 {
+      @include flex(2 2); // flex-grow flex-shrink
+    }
+    .c6 {
+      @include flex(2 2 10%); // flex-grow flex-shrink flex-basis
+    }
+    .c5 {
+      @include flex(none)
+    }
+  }
+  // TODO:
+  .parent-flex-need-shrink {
+    .child {
+      width: 3rem;
+    }
+    @include display-flex;
+    .c1 {
+      @include flex(1) // flex-grow
+    }
+    .c2 {
+      @include flex(1 3rem); // flex-grow flex-basis
+    }
+    .c3 {
+      @include flex(2rem); // flex-basis
+    }
+    .c4 {
+      @include flex(2 2); // flex-grow flex-shrink
+    }
+    .c6 {
+      @include flex(2 2 10%); // flex-grow flex-shrink flex-basis
+    }
+    .c5 {
+      @include flex(none)
+    }
+  }
+  // TODO:
+  .parent-flex-need-grow {
+    @include display-flex;
+    .c1 {
+      @include flex(1) // flex-grow
+    }
+    .c2 {
+      @include flex(1 3rem); // flex-grow flex-basis
+    }
+    .c3 {
+      @include flex(2rem); // flex-basis
+    }
+    .c4 {
+      @include flex(2 2); // flex-grow flex-shrink
+    }
+    .c6 {
+      @include flex(2 2 10%); // flex-grow flex-shrink flex-basis
+    }
+    .c5 {
+      @include flex(none)
+    }
+  }
+
+  /**
+   * align-self: auto | flex-start | flex-end | center | baseline | stretch
+   */
+  .parent-align-self {
+    @include display-flex;
+    @include align-items(center);
+    height: 5rem;
+    .child {
+      min-height: 3rem;
+      @include flex(1);
+    }
+    .c1 {
+      @include align-self(auto)
+    }
+    .c2 {
+      @include align-self(flex-start)
+    }
+    .c3 {
+      @include align-self(flex-end)
+    }
+    .c4 {
+      @include align-self(center)
+    }
+    .c5 {
+      @include align-self(baseline)
+    }
+    .c6 {
+      @include align-self(stretch)
+    }
+
+  }
+}
+
+/**
+ *
+ * Flex 综合
+ *
+ */
+.flex-allin-demos-block {
+  [class*=parent] {
+    height: 3rem;
+    box-sizing: content-box;
+    border: 1px solid red;
+  }
+  .child {
+    background-color: rgba(0, 128, 0, 0.21);
+    margin: 0 2px;
+    &.center {
+      @extend %flex-center;
+    }
+  }
+  &>div.tip-line:nth-of-type(n+2) {
+    margin-top: .6rem;
+  }
+  .flex-parent {
+    @include display-flex;
+    border: 1px solid red;
+    height: 3rem;
+    box-sizing: content-box;
+    margin-bottom: 5px !important;
+    .child {
+      @include flex(1);
+      background-color: rgba(0, 128, 0, 0.21);
+      margin: 0 2px;
+    }
+  }
+  .flex-parent-span {
+    @include display-flex;
+    border: 1px solid red;
+    height: 3rem;
+    box-sizing: content-box;
+    .child {
+      @include flex(1);
+    }
+  }
+}
