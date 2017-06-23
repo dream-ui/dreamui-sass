@@ -5,7 +5,7 @@
   "main": "index.scss",
   "scripts": {
     "lint": "node_modules/.bin/sass-lint",
-    "test": "sass --sourcemap=none test/test.scss test/test.css",
+    "sass": "sass --sourcemap=none test/test.scss test/test.css",
     "test:watch": "sass --watch test/test.scss:test/test.css",
     "test:liveload": "node_modules/.bin/browser-sync start --server 'test' --files 'test/*.css, test/*.html'"
   },
