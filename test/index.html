@@ -9,6 +9,12 @@
 </head>
 <body>
 
+  <div class="basic-info">
+    <span class="device-pixel-ratio"></span>
+    <span class="screen-height"></span>
+    <span class="screen-width"></span>
+  </div>
+
   <div class="demos">
 
     <span id="border-and-box-block" class="tip-line large first"> border-and-box </span>
@@ -378,6 +384,14 @@
         }
       }
     }
+    // basic-info
+    var infos = document.querySelector('.basic-info')
+    // dpr: Device Pixel Ratio
+    infos.querySelector('.device-pixel-ratio').innerHTML = 'dpr: ' + window.devicePixelRatio
+    infos.querySelector('.screen-height').innerHTML = 'screen height: ' + window.screen.height + 'px'
+    infos.querySelector('.screen-width').innerHTML = 'screen width: ' + window.screen.width + 'px'
+
+    
   </script>
 </body>
 </html>

@@ -5,6 +5,16 @@ body {
   padding-bottom: 10rem;
 }
 
+.basic-info {
+  color: rgba(255, 0, 0, 0.39);
+  height: 2rem;
+  line-height: 2rem;
+  padding: .5rem 0;
+  .span:nth-child(even) {
+    color: rgba(0, 128, 0, 0.39);
+  }
+}
+
 .demos {
   text-align: center;
   .type-block {
