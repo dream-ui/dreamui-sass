@@ -3,12 +3,12 @@
  *  Flexbox Mixins 
  */
 @mixin display-flex {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
+  display: -webkit-box;  /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+  display: -webkit-flex; /* 新版本语法: Chrome 21+ */
+  display: -moz-box;  /* 老版本语法: Firefox (buggy) */
   display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
+  display: -ms-flexbox;  /* 混合版本语法: IE 10 */
+  display: flex; /* 新版本语法: Opera 12.1, Firefox 22+ */
 }
 @mixin display-inline-flex {
   display: -webkit-inline-box;
@@ -154,6 +154,30 @@
     }
   }
 }
+
+@mixin flex-shrink($shrink) {
+  -ms-flex-shrink: $shrink;  /* IE10 */
+  -webkit-box-flex: $shrink;
+  -moz-flex-shrink: $shrink;
+  -webkit-flex-shrink: $shrink;
+  flex-shrink: 1;
+}
+
+@mixin flex-grow($grow) {
+  -ms-flex-grow: $grow;  /* IE10 */
+  -webkit-box-flex: $grow;
+  -moz-flex-grow: $grow;  /* Chrome,FireFox旧版本支持 */
+  -webkit-flex-grow: $grow;
+  flex-grow: $grow;
+}
+
+@mixin flex-basis($basis) {
+  -ms-flex-basis: $basis;  /* IE10 */
+  -moz-flex-basis: $basis;  /* Chrome,FireFox旧版本支持 */
+  -webkit-flex-basis: $basis;
+  flex-basis: $basis;
+}
+// TODO: -webkit-box-flex  -webkit-box-flex-group
 
 @mixin v-center {
   @include display-flex;
