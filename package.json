@@ -5,8 +5,8 @@
   "main": "index.scss",
   "scripts": {
     "lint": "node_modules/.bin/sass-lint",
-    "sass": "sass --sourcemap=none test/test.scss test/test.css",
-    "test:watch": "sass --watch test/test.scss:test/test.css",
+    "sass": "sass --sourcemap=none test/test.scss test/test.css && sass --sourcemap=none test/flex.scss test/flex.css",
+    "test:watch": "sass --sourcemap=none --watch test/:test/",
     "test:liveload": "node_modules/.bin/browser-sync start --server 'test' --files 'test/*.css, test/*.html'"
   },
   "repository": {
