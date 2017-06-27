@@ -97,6 +97,9 @@
   }
   align-self: $value;
 }
+/**
+ * ie10 and lower version not support align-content.
+ */
 @mixin align-content($value: stretch) {
   -webkit-align-content: $value;
   -moz-align-content: $value;

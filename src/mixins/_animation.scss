@@ -1,6 +1,14 @@
 /**
  *  Animation Mixins 
  */
+@mixin keyframes($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+  @-webkit-keyframes #{$name} { /*Safari and Chrome*/
+    @content;
+  }
+}
 @mixin animation($animation) {
   -webkit-animation: $animation;
   animation: $animation;
