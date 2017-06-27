@@ -1,0 +1,90 @@
+
+.animation-demos-block {
+
+  @include keyframes(automove) {
+    from { left: 0px; }
+    50% { left: 80%; }
+    to { left: 0px; }
+  }
+  @include keyframes(loading-simple) {
+    from {
+      @include rotate(0deg);
+    }
+    50% {
+      @include rotate(180deg);
+    }
+    to {
+      @include rotate(360deg);
+    }
+  }
+  @include keyframes(loading) {
+    0% { @include rotate(0deg); }
+    50% { @include rotate(360deg); }
+    70% { @include rotate(480deg); }
+    100% { @include rotate(540deg); }
+  }
+  @include keyframes(loading-inner) {
+    0% { @include rotate(10deg); }
+    50% { @include rotate(180deg); }
+    70% { @include rotate(180deg); }
+    100% { @include rotate(360deg); }
+  }
+
+  .style-origin {
+    position: absolute;
+    font-size: .9rem;
+    height: 1.6rem;
+    line-height: 1.6rem;
+    background: rgba(5, 249, 13, 0.41);
+    display: inline-block;
+    width: 20%;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .wrapper-animation-automove {
+    height: 4rem;
+    border: 1px solid red;
+    position: relative;
+    @extend %flex-center;
+    .style-origin {
+      @include animation(automove 3s infinite linear)
+    }
+  }
+
+  .wrapper-animation-loading {
+    height: 4rem;
+    border: 1px solid red;
+    @extend %flex-center;
+    .style-origin {
+      position: initial;
+      @include animation(loading-simple 2s infinite linear);
+    }
+    .loading-wrapper {
+      background: #afabab;
+      @include square(3rem);
+      @extend %flex-center;
+      position: relative;
+    }
+    .loading {
+      @include animation(loading 2s infinite linear);
+      @include circle(3rem);
+      @extend %flex-center;
+      position: absolute;
+      // border: 1px solid red;
+      clip: rect(0 3rem 3rem 1.5rem);
+      clip: rect(0, 3rem, 3rem, 1.5rem);
+      .loading-inner {
+        @include circle(2rem);
+        border: 2px solid white;
+        clip: rect(0 1rem 2rem 0); /* IE6, IE7 */
+        clip: rect(0, 1rem, 2rem, 0);
+        position: absolute;
+        box-sizing: border-box;
+        @include animation(loading 2s infinite linear);
+        @include rotate(10deg);
+      }
+    }
+  }
+
+}

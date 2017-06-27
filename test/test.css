@@ -35,6 +35,9 @@
  *  Flexbox Mixins 
  */
 /**
+ * ie10 and lower version not support align-content.
+ */
+/**
  *  Transformation Mixins 
  */
 /**
@@ -54,7 +57,7 @@
  * public style class
  *  
  */
-.flex-demos-block .child.center, .flex-child-demos-block .child.center, .flex-allin-demos-block .child.center, .xui-checkbox-amination {
+.flex-demos-block .child.center, .flex-child-demos-block .child.center, .flex-allin-demos-block .child.center, .animation-demos-block .wrapper-animation-automove, .animation-demos-block .wrapper-animation-loading, .animation-demos-block .wrapper-animation-loading .loading-wrapper, .animation-demos-block .wrapper-animation-loading .loading, .transition-demos-block .wrapper-transition-transform, .transition-demos-block .wrapper-transition-width, .xui-checkbox-amination {
   display: -webkit-box;
   /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
   display: -webkit-flex;
@@ -87,6 +90,14 @@ body {
   padding: 0;
   margin: 0;
   padding-bottom: 10rem; }
+
+.basic-info {
+  color: rgba(255, 0, 0, 0.39);
+  height: 2rem;
+  line-height: 2rem;
+  padding: .5rem 0; }
+  .basic-info .span:nth-child(even) {
+    color: rgba(0, 128, 0, 0.39); }
 
 .demos {
   text-align: center; }
@@ -412,14 +423,7 @@ body {
 
 .text-force-break {
   text-align: left;
-  white-space: pre-wrap;
-  /* css-3 */
-  white-space: -moz-pre-wrap;
-  /* Mozilla, since 1999 */
-  white-space: -pre-wrap;
-  /* Opera 4-6 */
-  white-space: -o-pre-wrap;
-  /* Opera 7 */
+  white-space: normal;
   word-wrap: break-word;
   /* Internet Explorer 5.5+ */
   word-break: break-all;
@@ -436,14 +440,7 @@ body {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
-  white-space: pre-wrap;
-  /* css-3 */
-  white-space: -moz-pre-wrap;
-  /* Mozilla, since 1999 */
-  white-space: -pre-wrap;
-  /* Opera 4-6 */
-  white-space: -o-pre-wrap;
-  /* Opera 7 */
+  white-space: normal;
   word-wrap: break-word;
   /* Internet Explorer 5.5+ */
   word-break: break-all;
@@ -454,14 +451,7 @@ body {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
-  white-space: pre-wrap;
-  /* css-3 */
-  white-space: -moz-pre-wrap;
-  /* Mozilla, since 1999 */
-  white-space: -pre-wrap;
-  /* Opera 4-6 */
-  white-space: -o-pre-wrap;
-  /* Opera 7 */
+  white-space: normal;
   word-wrap: break-word;
   /* Internet Explorer 5.5+ */
   word-break: break-all;
@@ -592,6 +582,8 @@ body {
     flex-direction: column-reverse;
     width: 30%;
     height: 10rem; }
+  .flex-demos-block .flex-direction-demo .parent-column, .flex-demos-block .flex-direction-demo .parent-column-reverse {
+    vertical-align: middle; }
   .flex-demos-block .flex-wrap-demo .child {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
@@ -1138,14 +1130,26 @@ body {
     display: flex;
     /* 新版本语法: Opera 12.1, Firefox 22+ */ }
     .flex-child-demos-block .flex-basis-demo .c1, .flex-child-demos-block .flex-basis-demo .c4 {
-      flex-basis: 20rem;
-      -webkit-flex-basis: 20rem; }
+      -ms-flex-basis: 20rem;
+      /* IE10 */
+      -moz-flex-basis: 20rem;
+      /* Chrome,FireFox旧版本支持 */
+      -webkit-flex-basis: 20rem;
+      flex-basis: 20rem; }
     .flex-child-demos-block .flex-basis-demo .c2 {
-      flex-basis: auto;
-      -webkit-flex-basis: auto; }
+      -ms-flex-basis: auto;
+      /* IE10 */
+      -moz-flex-basis: auto;
+      /* Chrome,FireFox旧版本支持 */
+      -webkit-flex-basis: auto;
+      flex-basis: auto; }
     .flex-child-demos-block .flex-basis-demo .c3 {
-      flex-basis: 10rem;
-      -webkit-flex-basis: 10rem; }
+      -ms-flex-basis: 10rem;
+      /* IE10 */
+      -moz-flex-basis: 10rem;
+      /* Chrome,FireFox旧版本支持 */
+      -webkit-flex-basis: 10rem;
+      flex-basis: 10rem; }
   .flex-child-demos-block .parent-flex {
     display: -webkit-box;
     /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
@@ -1429,6 +1433,354 @@ body {
     -ms-flex: 1;
     flex: 1; }
 
+@keyframes automove {
+  from {
+    left: 0px; }
+  50% {
+    left: 80%; }
+  to {
+    left: 0px; } }
+@-webkit-keyframes automove {
+  /*Safari and Chrome*/
+  from {
+    left: 0px; }
+  50% {
+    left: 80%; }
+  to {
+    left: 0px; } }
+@keyframes loading-simple {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+@-webkit-keyframes loading-simple {
+  /*Safari and Chrome*/
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+@keyframes loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  50% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); }
+  70% {
+    -webkit-transform: rotate(480deg);
+    transform: rotate(480deg); }
+  100% {
+    -webkit-transform: rotate(540deg);
+    transform: rotate(540deg); } }
+@-webkit-keyframes loading {
+  /*Safari and Chrome*/
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  50% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); }
+  70% {
+    -webkit-transform: rotate(480deg);
+    transform: rotate(480deg); }
+  100% {
+    -webkit-transform: rotate(540deg);
+    transform: rotate(540deg); } }
+@keyframes loading-inner {
+  0% {
+    -webkit-transform: rotate(10deg);
+    transform: rotate(10deg); }
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  70% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+@-webkit-keyframes loading-inner {
+  /*Safari and Chrome*/
+  0% {
+    -webkit-transform: rotate(10deg);
+    transform: rotate(10deg); }
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  70% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+.animation-demos-block .style-origin {
+  position: absolute;
+  font-size: .9rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  background: rgba(5, 249, 13, 0.41);
+  display: inline-block;
+  width: 20%;
+  text-align: center;
+  overflow: hidden; }
+.animation-demos-block .wrapper-animation-automove {
+  height: 4rem;
+  border: 1px solid red;
+  position: relative; }
+  .animation-demos-block .wrapper-animation-automove .style-origin {
+    -webkit-animation: automove 3s infinite linear;
+    animation: automove 3s infinite linear; }
+.animation-demos-block .wrapper-animation-loading {
+  height: 4rem;
+  border: 1px solid red; }
+  .animation-demos-block .wrapper-animation-loading .style-origin {
+    position: initial;
+    -webkit-animation: loading-simple 2s infinite linear;
+    animation: loading-simple 2s infinite linear; }
+  .animation-demos-block .wrapper-animation-loading .loading-wrapper {
+    background: #afabab;
+    width: 3rem;
+    height: 3rem;
+    position: relative; }
+  .animation-demos-block .wrapper-animation-loading .loading {
+    -webkit-animation: loading 2s infinite linear;
+    animation: loading 2s infinite linear;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 3rem;
+    position: absolute;
+    clip: rect(0 3rem 3rem 1.5rem);
+    clip: rect(0, 3rem, 3rem, 1.5rem); }
+    .animation-demos-block .wrapper-animation-loading .loading .loading-inner {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 2rem;
+      border: 2px solid white;
+      clip: rect(0 1rem 2rem 0);
+      /* IE6, IE7 */
+      clip: rect(0, 1rem, 2rem, 0);
+      position: absolute;
+      box-sizing: border-box;
+      -webkit-animation: loading 2s infinite linear;
+      animation: loading 2s infinite linear;
+      -webkit-transform: rotate(10deg);
+      transform: rotate(10deg); }
+
+.transition-demos-block .style-origin {
+  font-size: .9rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  background: rgba(5, 249, 13, 0.41);
+  display: inline-block;
+  min-width: 3rem;
+  width: 3rem;
+  text-align: center; }
+.transition-demos-block .wrapper-transition-transform {
+  height: 4rem;
+  border: 1px solid red; }
+  .transition-demos-block .wrapper-transition-transform .style-origin {
+    -webkit-transition: 500ms linear transform;
+    transition: 500ms linear transform; }
+  .transition-demos-block .wrapper-transition-transform.animal .style-origin {
+    -webkit-transform: scale(2);
+    transform: scale(2); }
+.transition-demos-block .wrapper-transition-width {
+  height: 4rem;
+  border: 1px solid red; }
+  .transition-demos-block .wrapper-transition-width .style-origin {
+    -webkit-transition: 500ms linear width;
+    transition: 500ms linear width; }
+  .transition-demos-block .wrapper-transition-width.animal .style-origin {
+    -webkit-transition: 500ms linear;
+    transition: 500ms linear;
+    width: 80%; }
+
+.transform-demos-block .wrapper-transform-scale {
+  text-align: left;
+  height: 4rem;
+  border: 1px solid red;
+  display: -webkit-box;
+  /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+  display: -webkit-flex;
+  /* 新版本语法: Chrome 21+ */
+  display: -moz-box;
+  /* 老版本语法: Firefox (buggy) */
+  display: -moz-flex;
+  display: -ms-flexbox;
+  /* 混合版本语法: IE 10 */
+  display: flex;
+  /* 新版本语法: Opera 12.1, Firefox 22+ */
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center; }
+  .transform-demos-block .wrapper-transform-scale > span {
+    margin-left: .4rem; }
+  .transform-demos-block .wrapper-transform-scale .style-origin {
+    font-size: .9rem;
+    height: 1.6rem;
+    line-height: 1.6rem;
+    background: rgba(5, 249, 13, 0.41);
+    display: inline-block; }
+    .transform-demos-block .wrapper-transform-scale .style-origin.o-top {
+      -webkit-transform-origin: 0 0;
+      transform-origin: 0 0; }
+    .transform-demos-block .wrapper-transform-scale .style-origin.scale-x {
+      -webkit-transform: scaleX(1.5);
+      transform: scaleX(1.5);
+      background-color: rgba(255, 0, 0, 0.2); }
+    .transform-demos-block .wrapper-transform-scale .style-origin.scale-y {
+      -webkit-transform: scaleY(1.5);
+      transform: scaleY(1.5); }
+    .transform-demos-block .wrapper-transform-scale .style-origin.scale-xy {
+      -webkit-transform: scale(1.5);
+      transform: scale(1.5); }
+      .transform-demos-block .wrapper-transform-scale .style-origin.scale-xy.gbco {
+        background-color: rgba(255, 0, 0, 0.2); }
+.transform-demos-block .wrapper-transform-rotate {
+  text-align: left;
+  height: 4rem;
+  border: 1px solid red;
+  display: -webkit-box;
+  /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+  display: -webkit-flex;
+  /* 新版本语法: Chrome 21+ */
+  display: -moz-box;
+  /* 老版本语法: Firefox (buggy) */
+  display: -moz-flex;
+  display: -ms-flexbox;
+  /* 混合版本语法: IE 10 */
+  display: flex;
+  /* 新版本语法: Opera 12.1, Firefox 22+ */
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center; }
+  .transform-demos-block .wrapper-transform-rotate > span {
+    margin-left: .4rem; }
+  .transform-demos-block .wrapper-transform-rotate .style-origin {
+    font-size: .9rem;
+    height: 1.6rem;
+    line-height: 1.6rem;
+    background: rgba(5, 249, 13, 0.41);
+    display: inline-block; }
+    .transform-demos-block .wrapper-transform-rotate .style-origin:nth-child(2n) {
+      background-color: rgba(255, 0, 0, 0.2); }
+    .transform-demos-block .wrapper-transform-rotate .style-origin.o-top {
+      -webkit-transform-origin: 0 0;
+      transform-origin: 0 0; }
+    .transform-demos-block .wrapper-transform-rotate .style-origin.rotate {
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg); }
+.transform-demos-block .wrapper-transform-translate {
+  text-align: left;
+  height: 4rem;
+  border: 1px solid red;
+  display: -webkit-box;
+  /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+  display: -webkit-flex;
+  /* 新版本语法: Chrome 21+ */
+  display: -moz-box;
+  /* 老版本语法: Firefox (buggy) */
+  display: -moz-flex;
+  display: -ms-flexbox;
+  /* 混合版本语法: IE 10 */
+  display: flex;
+  /* 新版本语法: Opera 12.1, Firefox 22+ */
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  position: relative;
+  overflow-x: scroll; }
+  .transform-demos-block .wrapper-transform-translate > span {
+    margin-left: .4rem; }
+  .transform-demos-block .wrapper-transform-translate .style-origin {
+    font-size: .9rem;
+    height: 1.6rem;
+    line-height: 1.6rem;
+    background: rgba(5, 249, 13, 0.41);
+    display: inline-block;
+    min-width: 3rem;
+    text-align: center; }
+    .transform-demos-block .wrapper-transform-translate .style-origin:nth-child(2n) {
+      background-color: rgba(255, 0, 0, 0.2); }
+    .transform-demos-block .wrapper-transform-translate .style-origin.translate {
+      -webkit-transform: translate(0.5rem, 0.5rem);
+      transform: translate(0.5rem, 0.5rem); }
+    .transform-demos-block .wrapper-transform-translate .style-origin.translate-x {
+      -webkit-transform: translate(0.5rem, 0);
+      transform: translate(0.5rem, 0); }
+    .transform-demos-block .wrapper-transform-translate .style-origin.translate-y {
+      -webkit-transform: translate(0, 0.5rem);
+      transform: translate(0, 0.5rem); }
+  .transform-demos-block .wrapper-transform-translate .style-origin-list {
+    position: absolute;
+    display: none; }
+    .transform-demos-block .wrapper-transform-translate .style-origin-list .style-origin {
+      background: transparent;
+      border: 1px solid red;
+      box-sizing: content-box; }
+.transform-demos-block .wrapper-transform-skew {
+  text-align: left;
+  height: 4rem;
+  border: 1px solid red;
+  display: -webkit-box;
+  /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
+  display: -webkit-flex;
+  /* 新版本语法: Chrome 21+ */
+  display: -moz-box;
+  /* 老版本语法: Firefox (buggy) */
+  display: -moz-flex;
+  display: -ms-flexbox;
+  /* 混合版本语法: IE 10 */
+  display: flex;
+  /* 新版本语法: Opera 12.1, Firefox 22+ */
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  position: relative;
+  overflow-x: scroll; }
+  .transform-demos-block .wrapper-transform-skew > span {
+    margin-left: .4rem; }
+  .transform-demos-block .wrapper-transform-skew .style-origin {
+    font-size: .9rem;
+    height: 1.6rem;
+    line-height: 1.6rem;
+    background: rgba(5, 249, 13, 0.41);
+    display: inline-block;
+    min-width: 3rem;
+    text-align: center; }
+    .transform-demos-block .wrapper-transform-skew .style-origin:nth-child(2n) {
+      background-color: rgba(255, 0, 0, 0.2); }
+    .transform-demos-block .wrapper-transform-skew .style-origin.skew {
+      -webkit-transform: skew(10deg, 45deg);
+      transform: skew(10deg, 45deg);
+      -webkit-backface-visibility: hidden; }
+    .transform-demos-block .wrapper-transform-skew .style-origin.skew-x {
+      -webkit-transform: skewX(45deg);
+      transform: skewX(45deg);
+      -webkit-backface-visibility: hidden; }
+    .transform-demos-block .wrapper-transform-skew .style-origin.skew-y {
+      -webkit-transform: skewY(45deg);
+      transform: skewY(45deg);
+      -webkit-backface-visibility: hidden; }
+
 /**
  *
  *  xui-checkbox-amination
@@ -1479,5 +1831,3 @@ body {
   border-bottom: 10px solid transparent;
   border-right: 10px solid transparent;
   border-right-color: blue; }
-
-/*# sourceMappingURL=test.css.map */

@@ -1,0 +1,138 @@
+.transform-demos-block {
+
+  .wrapper-transform-scale {
+    text-align: left;
+    height: 4rem;
+    border: 1px solid red;
+    @include v-center;
+    &>span {
+      margin-left: .4rem;
+    }
+    .style-origin {
+      font-size: .9rem;
+      height: 1.6rem;
+      line-height: 1.6rem;
+      background: rgba(5, 249, 13, 0.41);
+      display: inline-block;
+      &.o-top {
+        @include transform-origin(0, 0);
+      }
+      &.scale-x {
+        @include scaleX(1.5);
+        background-color: rgba(255, 0, 0, 0.2);
+      }
+      &.scale-y {
+        @include scaleY(1.5);
+      }
+      &.scale-xy {
+        @include scale(1.5);
+        &.gbco {
+          background-color: rgba(255, 0, 0, 0.2);
+        }
+      }
+    }
+  }
+
+  .wrapper-transform-rotate {
+    text-align: left;
+    height: 4rem;
+    border: 1px solid red;
+    @include v-center;
+    &>span {
+      margin-left: .4rem;
+    }
+    .style-origin {
+      font-size: .9rem;
+      height: 1.6rem;
+      line-height: 1.6rem;
+      background: rgba(5, 249, 13, 0.41);
+      display: inline-block;
+      &:nth-child(2n) {
+        background-color: rgba(255, 0, 0, 0.2);
+      }
+      &.o-top {
+        @include transform-origin(0, 0);
+      }
+      &.rotate {
+        @include rotate(45deg);
+      }
+    }
+  }
+
+  .wrapper-transform-translate {
+    text-align: left;
+    height: 4rem;
+    border: 1px solid red;
+    @include v-center;
+    position: relative;
+    overflow-x: scroll;
+    &>span {
+      margin-left: .4rem;
+    }
+    
+    .style-origin {
+      font-size: .9rem;
+      height: 1.6rem;
+      line-height: 1.6rem;
+      background: rgba(5, 249, 13, 0.41);
+      display: inline-block;
+      min-width: 3rem;
+      text-align: center;
+      &:nth-child(2n) {
+        background-color: rgba(255, 0, 0, 0.2);
+      }
+      &.translate {
+        @include translate(.5rem, .5rem);
+      }
+      &.translate-x {
+        @include translateX(.5rem);
+      }
+      &.translate-y {
+        @include translateY(.5rem);
+      }
+    }
+    .style-origin-list {
+      position: absolute;
+      display: none;
+      .style-origin {
+        background: transparent;
+        border: 1px solid red;
+        box-sizing: content-box;
+      }
+    }
+  }
+
+  .wrapper-transform-skew {
+    text-align: left;
+    height: 4rem;
+    border: 1px solid red;
+    @include v-center;
+    position: relative;
+    overflow-x: scroll;
+    &>span {
+      margin-left: .4rem;
+    }
+
+    .style-origin {
+      font-size: .9rem;
+      height: 1.6rem;
+      line-height: 1.6rem;
+      background: rgba(5, 249, 13, 0.41);
+      display: inline-block;
+      min-width: 3rem;
+      text-align: center;
+      &:nth-child(2n) {
+        background-color: rgba(255, 0, 0, 0.2);
+      }
+      &.skew {
+        @include skew(10deg, 45deg);
+      }
+      &.skew-x {
+        @include skewX(45deg);
+      }
+      &.skew-y {
+        @include skewY(45deg);
+      }
+    }
+  }
+}

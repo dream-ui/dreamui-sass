@@ -361,8 +361,84 @@
         <span class="child center 3">3 span</span>
         <span class="child center 4">4 span</span>
       </div>
+      <div class="tip-line">Flex 综合应用</div>
+      <a href="flex.html">Flex 综合应用示例</a>
     </div>
 
+    <span id="transform-demos-block" class="tip-line large">Transform</span>
+    <div class="type-block transform-demos-block">
+      <div class="tip-line">scale</div>
+      <div class="wrapper-transform-scale">
+        <span class="style-origin">origin</span>
+        <span class="style-origin scale-x">scaleX</span>
+        <span class="style-origin scale-y">scaleY</span>
+        <span class="style-origin scale-x o-top"></span>
+        <span class="style-origin scale-y o-top">scaleY</span>
+        <span class="style-origin scale-xy gbco">scaleXY</span>
+        <span class="style-origin scale-xy o-top">scaleXY</span>
+      </div>
+
+      <div class="tip-line">rotate</div>
+      <div class="wrapper-transform-rotate">
+        <span class="style-origin">origin</span>
+        <span class="style-origin rotate">rotate</span>
+        <span class="style-origin rotate o-top">rotate</span>
+      </div>
+
+      <div class="tip-line">translate</div>
+      <div class="wrapper-transform-translate">
+        <span class="style-origin">origin</span>
+        <span class="style-origin translate">all</span>
+        <span class="style-origin translate-x">x</span>
+        <span class="style-origin translate-y">y</span>
+        <span class="style-origin-list">
+          <span class="style-origin"></span>
+          <span class="style-origin"></span>
+          <span class="style-origin"></span>
+          <span class="style-origin"></span>
+        </span>
+      </div>
+
+      <div class="tip-line">skew</div>
+      <div class="wrapper-transform-skew">
+        <span class="style-origin">origin</span>
+        <span class="style-origin skew">skew</span>
+        <span class="style-origin skew-x">skewX</span>
+        <span class="style-origin skew-y">skewY</span>
+      </div>
+    </div>
+
+    <span id="transition-demos-block" class="tip-line large">Transition</span>
+    <div class="type-block transition-demos-block">
+      <span class="btn-start">开始</span>
+      <span class="btn-reset">重置</span>
+      <div class="tip-line">transform</div>
+      <div class="wrapper-transition-transform">
+        <span class="style-origin">origin</span>
+      </div>
+
+      <div class="tip-line">width</div>
+      <div class="wrapper-transition-width">
+        <span class="style-origin">origin</span>
+      </div>
+    </div>
+
+    <span id="animation-demos-block" class="tip-line large">Animation</span>
+    <div class="type-block animation-demos-block">
+      <div class="tip-line">automove</div>
+      <div class="wrapper-animation-automove">
+        <span class="style-origin">automove</span>
+      </div>
+      <div class="tip-line">loading</div>
+      <div class="wrapper-animation-loading">
+        <span class="style-origin">loading</span>
+        <div class="loading-wrapper">
+          <div class="loading">
+            <div class="loading-inner"></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script>
@@ -391,6 +467,19 @@
     infos.querySelector('.screen-height').innerHTML = 'screen height: ' + window.screen.height + 'px'
     infos.querySelector('.screen-width').innerHTML = 'screen width: ' + window.screen.width + 'px'
 
+    // transition btns.
+    document.querySelector('.transition-demos-block .btn-reset').onclick = () => {
+      var eleTransform = document.querySelector('.transition-demos-block .wrapper-transition-transform')
+      var eleWidth = document.querySelector('.transition-demos-block .wrapper-transition-width')
+      eleTransform.setAttribute('class', eleTransform.getAttribute('class').replace(/animal/g, ''))
+      eleWidth.setAttribute('class', eleWidth.getAttribute('class').replace(/animal/g, ''))
+    }
+    document.querySelector('.transition-demos-block .btn-start').onclick = () => {
+      var eleTransform = document.querySelector('.transition-demos-block .wrapper-transition-transform')
+      var eleWidth = document.querySelector('.transition-demos-block .wrapper-transition-width')
+      eleTransform.setAttribute('class', eleTransform.getAttribute('class') + ' animal')
+      eleWidth.setAttribute('class', eleWidth.getAttribute('class') + ' animal')
+    }
     
   </script>
 </body>

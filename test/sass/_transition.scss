@@ -1,0 +1,43 @@
+.transition-demos-block {
+
+  .style-origin {
+    font-size: .9rem;
+    height: 1.6rem;
+    line-height: 1.6rem;
+    background: rgba(5, 249, 13, 0.41);
+    display: inline-block;
+    min-width: 3rem;
+    width: 3rem;
+    text-align: center;
+  }
+
+  .wrapper-transition-transform {
+    height: 4rem;
+    border: 1px solid red;
+    @extend %flex-center;
+    .style-origin {
+      @include transition(500ms linear transform);
+    }
+    &.animal {
+      .style-origin {
+        @include scale(2);
+      }
+    }
+  }
+
+  .wrapper-transition-width {
+    height: 4rem;
+    border: 1px solid red;
+    @extend %flex-center;
+    .style-origin {
+      @include transition(500ms linear width);
+    }
+    &.animal {
+      .style-origin {
+        @include transition(500ms linear);
+        width: 80%;
+      }
+    }
+  }
+
+}
