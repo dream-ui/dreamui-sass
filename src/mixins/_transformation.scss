@@ -9,7 +9,7 @@
   -webkit-transform-origin: $left $top;
   transform-origin: $left $top;
 }
-
+ 
 @mixin scale($ratio) {
   @include transform( scale($ratio) );
 }
@@ -17,7 +17,7 @@
   @include transform( scaleY($y) );
 }
 @mixin scaleX($x) {
-  @include transform( scaleY($x) );
+  @include transform( scaleX($x) );
 }
 
 @mixin rotate($degrees) {
@@ -42,5 +42,13 @@
 
 @mixin skew($x, $y) {
   @include transform( skew($x, $y) );
+  -webkit-backface-visibility: hidden;
+}
+@mixin skewX($x) {
+  @include transform( skewX($x) );
+  -webkit-backface-visibility: hidden;
+}
+@mixin skewY($y) {
+  @include transform( skewY($y) );
   -webkit-backface-visibility: hidden;
 }
