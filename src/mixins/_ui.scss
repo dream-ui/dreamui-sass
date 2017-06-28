@@ -21,11 +21,16 @@
  * pregress class: use `right` protopety.
  *    .xui-progressing-0 ~ .xui-progressing-100
  */
-@mixin xui-progressing () {
+@mixin xui-progressing ($important) {
   $xui_progressing_i: 0;
   @while $xui_progressing_i <= 100 {
     .xui-progressing-#{$xui_progressing_i} {
-      right: #{100-$xui_progressing_i};
+      @if $important == true {
+        width: #{$xui_progressing_i}#{unquote('%')} !important;
+      } @else if $important == 'true' {
+        width: #{$xui_progressing_i}#{unquote('%')} !important;
+      }
+      width: #{$xui_progressing_i}#{unquote('%')};
     }
     $xui_progressing_i: $xui_progressing_i+1;
   }
