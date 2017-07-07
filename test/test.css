@@ -3,6 +3,9 @@
  *  Animation Mixins 
  */
 /**
+ * border-radius
+ */
+/**
  *
  *  border and box Mixins 
  *
@@ -24,9 +27,6 @@
  *    .temp-div {
  *      @include box-shadow(1px 1px 5px red);
  *    }
- */
-/**
- * border-radius
  */
 /**
  * thin-border
@@ -52,11 +52,6 @@
  * pregress class: use `right` protopety.
  *    .xui-progressing-0 ~ .xui-progressing-100
  */
-/**
- *
- * public style class
- *  
- */
 .flex-demos-block .child.center, .flex-child-demos-block .child.center, .flex-allin-demos-block .child.center, .animation-demos-block .wrapper-animation-automove, .animation-demos-block .wrapper-animation-loading, .animation-demos-block .wrapper-animation-loading .loading-wrapper, .animation-demos-block .wrapper-animation-loading .loading, .transition-demos-block .wrapper-transition-transform, .transition-demos-block .wrapper-transition-width, .xui-checkbox-amination {
   display: -webkit-box;
   /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers(Opera,Chrome). */
@@ -81,9 +76,7 @@
   justify-content: center; }
 
 /**
- *
- * public style class for components
- *  
+ * hasLayout will be trigged by zoom:1 under IE6、7 env. 
  */
 body {
   background-color: rgba(158, 158, 158, 0.13);
@@ -118,6 +111,7 @@ body {
   .tip-line.large {
     background: white;
     line-height: 2rem;
+    -moz-box-shadow: 0px 0px 3px 0px #525252;
     -webkit-box-shadow: 0px 0px 3px 0px #525252;
     box-shadow: 0px 0px 3px 0px #525252; }
     .tip-line.large.first {
@@ -154,38 +148,51 @@ body {
     width: 50px;
     height: 50px; }
   .demos-border-radius .border-top-radius {
+    -moz-border-top-right-radius: 10px;
     -webkit-border-top-right-radius: 10px;
     border-top-right-radius: 10px;
+    -moz-border-top-left-radius: 10px;
     -webkit-border-top-left-radius: 10px;
     border-top-left-radius: 10px; }
   .demos-border-radius .border-bottom-radius {
+    -moz-border-bottom-right-radius: 10px;
     -webkit-border-bottom-right-radius: 10px;
     border-bottom-right-radius: 10px;
+    -moz-border-bottom-left-radius: 10px;
     -webkit-border-bottom-left-radius: 10px;
     border-bottom-left-radius: 10px; }
   .demos-border-radius .border-left-radius {
+    -moz-border-bottom-left-radius: 10px;
     -webkit-border-bottom-left-radius: 10px;
     border-bottom-left-radius: 10px;
+    -moz-border-top-left-radius: 10px;
     -webkit-border-top-left-radius: 10px;
     border-top-left-radius: 10px; }
   .demos-border-radius .border-right-radius {
+    -moz-border-top-right-radius: 10px;
     -webkit-border-top-right-radius: 10px;
     border-top-right-radius: 10px;
+    -moz-border-bottom-right-radius: 10px;
     -webkit-border-bottom-right-radius: 10px;
     border-bottom-right-radius: 10px; }
   .demos-border-radius .border-top-right-radius {
+    -moz-border-top-right-radius: 10px;
     -webkit-border-top-right-radius: 10px;
     border-top-right-radius: 10px; }
   .demos-border-radius .border-top-left-radius {
+    -moz-border-top-left-radius: 10px;
     -webkit-border-top-left-radius: 10px;
     border-top-left-radius: 10px; }
   .demos-border-radius .border-bottom-right-radius {
+    -moz-border-bottom-right-radius: 10px;
     -webkit-border-bottom-right-radius: 10px;
     border-bottom-right-radius: 10px; }
   .demos-border-radius .border-bottom-left-radius {
+    -moz-border-bottom-left-radius: 10px;
     -webkit-border-bottom-left-radius: 10px;
     border-bottom-left-radius: 10px; }
   .demos-border-radius .border-radius-all {
+    -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px; }
 
@@ -532,8 +539,9 @@ body {
     /* 新版本语法: Opera 12.1, Firefox 22+ */
     -webkit-box-direction: normal;
     -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
     -webkit-flex-direction: row;
-    -moz-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row; }
   .flex-demos-block .flex-direction-demo .parent-row-reverse {
@@ -551,7 +559,6 @@ body {
     -webkit-box-direction: reverse;
     -webkit-box-orient: horizontal;
     -webkit-flex-direction: row-reverse;
-    -moz-flex-direction: row-reverse;
     -ms-flex-direction: row-reverse;
     flex-direction: row-reverse; }
   .flex-demos-block .flex-direction-demo .parent-column {
@@ -562,8 +569,9 @@ body {
     display: inline-flex;
     -webkit-box-direction: normal;
     -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
     -webkit-flex-direction: column;
-    -moz-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
     width: 30%;
@@ -577,7 +585,6 @@ body {
     -webkit-box-direction: reverse;
     -webkit-box-orient: vertical;
     -webkit-flex-direction: column-reverse;
-    -moz-flex-direction: column-reverse;
     -ms-flex-direction: column-reverse;
     flex-direction: column-reverse;
     width: 30%;
@@ -862,8 +869,9 @@ body {
   .flex-demos-block .align-content-demo [class^=parent] {
     -webkit-box-direction: normal;
     -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
     -webkit-flex-direction: row;
-    -moz-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
     -webkit-flex-wrap: wrap;
