@@ -1,7 +1,7 @@
 {
-  "name": "tools_sass",
+  "name": "dreamui-sass",
   "version": "1.0.0",
-  "description": "tools for sass. contain some of common mixin and style definition.",
+  "description": "DreamUI sass lib. contain some of common mixin and style definition.",
   "main": "index.scss",
   "scripts": {
     "lint": "node_modules/.bin/sass-lint",
@@ -17,12 +17,12 @@
     "sass",
     "tool"
   ],
-  "author": "xbr",
+  "author": "boren.xue",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/borenXue/tools_sass/issues"
+    "url": "https://github.com/dream-ui/dreamui-sass/issues"
   },
-  "homepage": "https://github.com/borenXue/tools_sass#readme",
+  "homepage": "https://github.com/dream-ui/dreamui-sass/#readme",
   "devDependencies": {
     "browser-sync": "^2.18.12",
     "sass-lint": "^1.10.2"
