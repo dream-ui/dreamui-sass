@@ -1,0 +1,30 @@
+
+%flex-center{
+  @include display-flex;
+  @include align-items(center);
+  @include justify-content(center);
+}
+%flex-center-inline{
+  @include display-inline-flex;
+  @include align-items(center);
+  @include justify-content(center);
+}
+
+%flex-left{
+  @include display-flex;
+  @include align-items(center);
+  @include justify-content(flex-start);
+}
+%flex-space-between{
+  @include display-flex;
+  @include align-items(center);
+  @include justify-content(space-between);
+}
+
+%flex-h{
+  @include flex-direction(row);
+}
+%flex-v{
+  @include flex-direction(column);
+}
+

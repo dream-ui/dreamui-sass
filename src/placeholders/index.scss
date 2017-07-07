@@ -1,0 +1,12 @@
+
+@import 'text';
+@import 'flex';
+@import 'box-and-border';
+
+%input-plain{
+  width: 100%;
+  border: 0px;
+  &:focus{
+    outline: none;
+  }
+}
