@@ -1,4 +1,4 @@
-# tools_sass: common mixin、selector's lib
+# tools_sass: sass collection of useful function, mixin, placeholders
 
 > [Demos](http://xueboren.com/dreamui/sass-demos/)
 
