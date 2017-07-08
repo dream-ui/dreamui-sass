@@ -25,6 +25,7 @@
   "homepage": "https://github.com/dream-ui/dreamui-sass/#readme",
   "devDependencies": {
     "browser-sync": "^2.18.12",
+    "sass": "^1.0.0-beta.1",
     "sass-lint": "^1.10.2"
   }
 }
