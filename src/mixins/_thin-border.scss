@@ -19,7 +19,7 @@
 @mixin thin-border($color, $position: 'all', $borderRadius: initial, $beforeAfter: before){
   position: relative;
   &::#{$beforeAfter}{
-    box-sizing: border-box;
+    @include box-sizing(border-box);
     pointer-events: none;
     content: '';    // sass-lint:disable-line variable-for-property
     border-radius: $borderRadius;

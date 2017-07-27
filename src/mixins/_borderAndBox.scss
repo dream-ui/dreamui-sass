@@ -38,3 +38,9 @@
   -webkit-box-shadow: $shadow;
   box-shadow: $shadow;
 } 
+
+@mixin box-sizing($boxSizing) {
+  box-sizing: $boxSizing;
+  -moz-box-sizing: $boxSizing;
+  -webkit-box-sizing: $boxSizing;
+}
