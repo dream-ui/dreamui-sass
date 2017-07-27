@@ -1,1 +1,9 @@
 // Function API:  http://sass-lang.com/documentation/Sass/Script/Functions.html
+
+@function pxToREM($px, $base: 14px) {
+  @return ($px / $base) * 1rem;
+}
+
+@function remToPX($rem, $base: 14px) {
+  @return ($rem / 1rem) * $base;
+}

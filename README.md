@@ -80,6 +80,13 @@ $ git subtree pull --prefix=public_modules/tools_sass tools_sass master
   +display-flex
 ```
 
+### function list
+
+| Function | Desc |
+| -------- | ---- |
+| pxToREM | px to rem for css |
+| remToPX | rem to px for css |
+
 
 ### Selector List
 
