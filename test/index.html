@@ -468,13 +468,13 @@
     infos.querySelector('.screen-width').innerHTML = 'screen width: ' + window.screen.width + 'px'
 
     // transition btns.
-    document.querySelector('.transition-demos-block .btn-reset').onclick = () => {
+    document.querySelector('.transition-demos-block .btn-reset').onclick = function () {
       var eleTransform = document.querySelector('.transition-demos-block .wrapper-transition-transform')
       var eleWidth = document.querySelector('.transition-demos-block .wrapper-transition-width')
       eleTransform.setAttribute('class', eleTransform.getAttribute('class').replace(/animal/g, ''))
       eleWidth.setAttribute('class', eleWidth.getAttribute('class').replace(/animal/g, ''))
     }
-    document.querySelector('.transition-demos-block .btn-start').onclick = () => {
+    document.querySelector('.transition-demos-block .btn-start').onclick = function () {
       var eleTransform = document.querySelector('.transition-demos-block .wrapper-transition-transform')
       var eleWidth = document.querySelector('.transition-demos-block .wrapper-transition-width')
       eleTransform.setAttribute('class', eleTransform.getAttribute('class') + ' animal')
