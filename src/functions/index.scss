@@ -1,9 +1,33 @@
 // Function API:  http://sass-lang.com/documentation/Sass/Script/Functions.html
 
-@function pxToREM($px, $base: 14px) {
-  @return ($px / $base) * 1rem;
+@function pxToREM($px, $baseFontSize: 14px) {
+  @if (unitless($px)) {
+    @return pxToREM(#{$px}px, $baseFontSize);
+  } @else if (unit($px) == rem) {
+    @return $px;
+  } @else {
+    @return ($px / $baseFontSize) * 1rem; 
+  }
+}
+@function pxToRem($px, $baseFontSize) {
+  @return pxToREM($px, $baseFontSize);
+}
+@function px2rem($px, $baseFontSize) {
+  @return pxToREM($px, $baseFontSize);
 }
 
-@function remToPX($rem, $base: 14px) {
-  @return ($rem / 1rem) * $base;
+@function remToPX($rem, $baseFontSize: 14px) {
+  @if (unitless($rem)) {
+    @return remToPX(#{$rem}rem, $baseFontSize);
+  } @else if (unit($rem) == px) {
+    @return $rem;
+  } @else {
+    @return ($rem / 1rem) * $baseFontSize; 
+  }
+}
+@function remToPx($rem, $baseFontSize) {
+  @return remToPX($rem, $baseFontSize);
+}
+@function rem2px($rem, $baseFontSize) {
+  @return remToPX($rem, $baseFontSize);
 }
