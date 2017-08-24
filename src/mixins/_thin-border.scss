@@ -1,21 +1,6 @@
 /**
- * thin-border
+ * thin-border series mixins.
  */
-@mixin thin-border-bottom($color, $borderRadius: initial, $beforeAfter: before){
-  @include thin-border($color, 'bottom', $borderRadius, $beforeAfter);
-}
-@mixin thin-border-top($color, $borderRadius: initial, $beforeAfter: before){
-  @include thin-border($color, 'top', $borderRadius, $beforeAfter);
-}
-@mixin thin-border-left($color, $borderRadius: initial, $beforeAfter: before){
-  @include thin-border($color, 'left', $borderRadius, $beforeAfter);
-}
-@mixin thin-border-right($color, $borderRadius: initial, $beforeAfter: before){
-  @include thin-border($color, 'right', $borderRadius, $beforeAfter);
-}
-@mixin thin-border-all($color, $borderRadius: initial, $beforeAfter: before){
-  @include thin-border($color, 'all', $borderRadius, $beforeAfter);
-}
 @mixin thin-border($color, $position: 'all', $borderRadius: initial, $beforeAfter: before){
   position: relative;
   &::#{$beforeAfter}{
@@ -32,6 +17,30 @@
     bottom: 0;
     @if $position == 'all' {
       border: 1px solid $color;
+    } @else if str-index($position, '-') {
+      $positionsList: '';
+      $tempstring: $position;
+      $idx: str-index($tempstring, '-');
+      // @debug $idx;
+      // @debug $position;
+      @while ($idx) {
+        $tempHeadStr:  str-slice($tempstring, 0, $idx - 1); // 临时存放剩余字符串中第一个 position 的值
+        $positionsList: append($positionsList, $tempHeadStr);
+        $tempstring: str-slice($tempstring, $idx + 1);
+        $idx: str-index($tempstring, '-');
+        @if ($idx) { } @else {
+          $positionsList: append($positionsList, $tempstring);
+        }
+        // @debug $tempHeadStr $tempstring $idx;
+      }
+      // @debug $position;
+      // @debug $positionsList;
+      @each $item in $positionsList {
+        @if (str-length($item) > 0) {
+          // @debug str-length($item) border-#{$item};
+          border-#{$item}: 1px solid $color; 
+        }
+      }
     } @else {
       border-#{$position}: 1px solid $color; 
     }
@@ -48,3 +57,96 @@
     }
   }
 }
+
+@mixin thin-border-all($color, $borderRadius: initial, $beforeAfter: before){
+  @include thin-border($color, 'all', $borderRadius, $beforeAfter);
+}
+
+
+@mixin thin-border-bottom($color, $borderRadius: initial, $beforeAfter: before){
+  @include thin-border($color, 'bottom', $borderRadius, $beforeAfter);
+}
+@mixin thin-border-top($color, $borderRadius: initial, $beforeAfter: before){
+  @include thin-border($color, 'top', $borderRadius, $beforeAfter);
+}
+@mixin thin-border-left($color, $borderRadius: initial, $beforeAfter: before){
+  @include thin-border($color, 'left', $borderRadius, $beforeAfter);
+}
+@mixin thin-border-right($color, $borderRadius: initial, $beforeAfter: before){
+  @include thin-border($color, 'right', $borderRadius, $beforeAfter);
+}
+
+
+@mixin thin-border-left-top($color, $borderRadius: initial, $beforeAfter: before){
+  @include thin-border($color, 'left-top', $borderRadius, $beforeAfter);
+}
+@mixin thin-border-left-bottom($color, $borderRadius: initial, $beforeAfter: before){
+  @include thin-border($color, 'left-bottom', $borderRadius, $beforeAfter);
+}
+@mixin thin-border-right-top($color, $borderRadius: initial, $beforeAfter: before){
+  @include thin-border($color, 'right-top', $borderRadius, $beforeAfter);
+}
+@mixin thin-border-right-bottom($color, $borderRadius: initial, $beforeAfter: before){
+  @include thin-border($color, 'right-bottom', $borderRadius, $beforeAfter);
+}
+
+@mixin thin-border-top-left($color, $borderRadius: initial, $beforeAfter: before){
+  @include thin-border($color, 'top-left', $borderRadius, $beforeAfter);
+}
+@mixin thin-border-bottom-left($color, $borderRadius: initial, $beforeAfter: before){
+  @include thin-border($color, 'bottom-left', $borderRadius, $beforeAfter);
+}
+@mixin thin-border-top-right($color, $borderRadius: initial, $beforeAfter: before){
+  @include thin-border($color, 'top-right', $borderRadius, $beforeAfter);
+}
+@mixin thin-border-bottom-right($color, $borderRadius: initial, $beforeAfter: before){
+  @include thin-border($color, 'bottom-right', $borderRadius, $beforeAfter);
+}
+
+
+/**
+ * ⚠ sass 目前无法动态定义 mixin
+ * 动态定义 thin-border 子系列:
+ * 
+ * 第一层级:
+ * thin-border-left thin-border-right thin-border-top thin-border-bottom
+ *
+ * 第二层级:
+ * thin-border-left-top thin-border-right-top thin-border-bottom-top thin-border-left-bottom
+ * thin-border-right-bottom thin-border-top-bottom thin-border-right-left thin-border-top-left
+ * thin-border-bottom-left thin-border-left-right thin-border-top-right thin-border-bottom-right
+ *
+ * 第三层级:
+ * thin-border-left-top-right
+ */
+// directions: left top right bottom;
+// @each $d1 in $directions {//  // 定义第一层 mixin
+//   @if (mixin-exists(thin-border-#{$d1})) { } @else {
+//     // @debug thin-border-#{$d1};
+//     @mixin thin-border-#{$d1} ($color, $borderRadius: initial, $beforeAfter: before) {
+//       @include thin-border($color, $d1, $borderRadius, $beforeAfter);
+//     }
+//   }
+//    // 定义第二层 mixin
+//   @each $d2 in $directions {
+//     @if ($d1 != $d2) {
+//       // @debug thin-border-#{$d1}-#{$d2};
+//       @if (mixin-exists(thin-border-#{$d1}-#{$d2})) { } @else {
+//         @mixin thin-border-#{$d1}-#{$d2} ($color, $borderRadius: initial, $beforeAfter: before) {
+//           @include thin-border($color, #{$d1}-#{$d2}, $borderRadius, $beforeAfter);
+//         }
+//       }
+//     }
+//      // 定义第三层 mixin
+//     @each $d3 in $directions {
+//       @if (($d1 != $d2) && ($d1 != $d3) && ($d2 != $d2)) {
+//         // @debug thin-border-#{$d1}-#{$d2}-#{$d3};
+//         @if (mixin-exists(thin-border-#{$d1}-#{$d2}-#{$d3})) { } @else {
+//           @mixin thin-border-#{$d1}-#{$d2}-#{$d3} () {
+//             @include thin-border($color, #{$d1}-#{$d2}-#{$d3}, $borderRadius, $beforeAfter);
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
