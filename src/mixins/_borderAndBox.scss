@@ -1,6 +1,6 @@
 /**
  *
- *  border and box Mixins 
+ *  border and box Mixins
  *
  */
 
@@ -13,6 +13,11 @@
 @mixin square($width) {
   width: $width;
   height: $width;
+}
+
+@mixin max-square($width) {
+  max-width: $width;
+  max-height: $width;
 }
 
 /**
@@ -37,7 +42,7 @@
   -moz-box-shadow: $shadow;
   -webkit-box-shadow: $shadow;
   box-shadow: $shadow;
-} 
+}
 
 @mixin box-sizing($boxSizing) {
   box-sizing: $boxSizing;

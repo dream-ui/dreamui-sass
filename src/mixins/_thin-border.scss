@@ -38,11 +38,11 @@
       @each $item in $positionsList {
         @if (str-length($item) > 0) {
           // @debug str-length($item) border-#{$item};
-          border-#{$item}: 1px solid $color; 
+          border-#{$item}: 1px solid $color; /* no */
         }
       }
     } @else {
-      border-#{$position}: 1px solid $color; 
+      border-#{$position}: 1px solid $color; /* no */
     }
   }
   @media screen and (-webkit-min-device-pixel-ratio: 2) {
@@ -107,7 +107,7 @@
 /**
  * ⚠ sass 目前无法动态定义 mixin
  * 动态定义 thin-border 子系列:
- * 
+ *
  * 第一层级:
  * thin-border-left thin-border-right thin-border-top thin-border-bottom
  *

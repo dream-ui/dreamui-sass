@@ -22,9 +22,11 @@
 }
 
 %flex-h{
+  @include display-flex;
   @include flex-direction(row);
 }
 %flex-v{
+  @include display-flex;
   @include flex-direction(column);
 }
 
